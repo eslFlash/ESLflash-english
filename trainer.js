@@ -2,36 +2,56 @@ let currentWords = [];
 let currentWord = {};
 let score = 0;
 
-async function loadDictionary(name = "basic") {
-    const response = await fetch(`dictionaries/${name}.json`);
-    currentWords = await response.json();
-    score = 0;
-    document.getElementById("score").textContent = "Бали: 0";
-    getRandomWord();
+const wordElement = document.getElementById("word");
+const answerInput = document.getElementById("answer");
+const resultElement = document.getElementById("result");
+const scoreElement = document.getElementById("score");
+const dictionarySelect = document.getElementById("dictionarySelect");
+
+async function loadDictionary(name) {
+    try {
+        const response = await fetch(`dictionaries/${name}.json`);
+        currentWords = await response.json();
+
+        if (!Array.isArray(currentWords) || currentWords.length === 0) {
+            wordElement.textContent = "Словник порожній";
+            return;
+        }
+
+        score = 0;
+        scoreElement.textContent = "Бали: 0";
+        getRandomWord();
+
+    } catch (error) {
+        wordElement.textContent = "Помилка завантаження словника";
+        console.error(error);
+    }
 }
 
 function getRandomWord() {
     currentWord = currentWords[Math.floor(Math.random() * currentWords.length)];
-    document.getElementById("word").textContent = currentWord.en;
+    wordElement.textContent = currentWord.en;
 }
 
 function checkAnswer() {
-    const userAnswer = document.getElementById("answer").value.toLowerCase().trim();
-    const result = document.getElementById("result");
+    const userAnswer = answerInput.value.toLowerCase().trim();
 
     if (userAnswer === currentWord.ua) {
         score++;
-        result.textContent = "✅ Правильно!";
+        resultElement.textContent = "✅ Правильно!";
     } else {
-        result.textContent = "❌ Правильна відповідь: " + currentWord.ua;
+        resultElement.textContent = "❌ Правильна відповідь: " + currentWord.ua;
     }
 
-    document.getElementById("score").textContent = "Бали: " + score;
-    document.getElementById("answer").value = "";
-
+    scoreElement.textContent = "Бали: " + score;
+    answerInput.value = "";
     setTimeout(getRandomWord, 800);
 }
 
+dictionarySelect.addEventListener("change", () => {
+    loadDictionary(dictionarySelect.value);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
-    loadDictionary("basic");
+    loadDictionary(dictionarySelect.value);
 });

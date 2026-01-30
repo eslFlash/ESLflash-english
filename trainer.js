@@ -11,7 +11,7 @@ let score = 0;
 
 function getRandomWord() {
     currentWord = words[Math.floor(Math.random() * words.length)];
-    document.getElementById("word").innerText = currentWord.en;
+    document.getElementById("word").textContent = currentWord.en;
 }
 
 function checkAnswer() {
@@ -20,14 +20,15 @@ function checkAnswer() {
 
     if (userAnswer === currentWord.ua) {
         score++;
-        result.innerText = "✅ Правильно!";
+        result.textContent = "✅ Правильно!";
     } else {
-        result.innerText = "❌ Неправильно. Правильна відповідь: " + currentWord.ua;
+        result.textContent = "❌ Неправильно. Правильна відповідь: " + currentWord.ua;
     }
 
-    document.getElementById("score").innerText = "Бали: " + score;
+    document.getElementById("score").textContent = "Бали: " + score;
     document.getElementById("answer").value = "";
-    getRandomWord();
+
+    setTimeout(getRandomWord, 800);
 }
 
-window.onload = getRandomWord;Add trainer script
+document.addEventListener("DOMContentLoaded", getRandomWord);

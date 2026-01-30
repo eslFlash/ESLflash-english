@@ -93,3 +93,54 @@ footer {
     background: gray;
     cursor: not-allowed;
 }
+body {
+    background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.trainer-container {
+    margin-top: 60px;
+}
+
+.word-box {
+    background: orange;
+    color: black;
+    padding: 30px;
+    margin: 30px auto;
+    width: 300px;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    width: 200px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background: orange;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+select {
+    padding: 8px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.back-btn {
+    display: block;
+    margin-top: 30px;
+    color: orange;
+    text-decoration: none;
+}

@@ -3,26 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Word Trainer | ESLflash-english</title>
+<title>Games | ESLflash-english</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Word Trainer</h1>
+<h1>Ігри</h1>
 
-<h2 id="word">Завантаження...</h2>
+<div class="games-grid">
 
-<input type="text" id="answer" placeholder="Введи переклад">
-<br><br>
-<button onclick="checkAnswer()">Перевірити</button>
+    <div class="game-card">
+        <h2>Word Trainer</h2>
+        <p>Тренування перекладу слів</p>
+        <a href="word-trainer.html">
+            <button>Грати</button>
+        </a>
+    </div>
 
-<p id="result"></p>
-<p id="score">Бали: 0</p>
+    <div class="game-card">
+        <h2>Coming Soon</h2>
+        <p>Нова гра вже готується</p>
+        <button disabled>Скоро</button>
+    </div>
+
+</div>
 
 <br>
-<a href="index.html">← Назад</a>
-
-<script src="trainer.js"></script>
+<a href="index.html">← На головну</a>
 
 </body>
 </html>

@@ -8,37 +8,21 @@
 </head>
 <body>
 
-<h1>Ігри та тренажери</h1>
+<h1>Word Trainer</h1>
 
-<div class="grid">
+<h2 id="word"></h2>
 
-<div class="card">
-<h3>Word Trainer</h3>
-<p>Тренування словникового запасу</p>
-</div>
+<input type="text" id="answer" placeholder="Введи переклад">
+<br><br>
+<button onclick="checkAnswer()">Перевірити</button>
 
-<div class="card">
-<h3>Quick Quiz</h3>
-<p>Швидкі вікторини рівнів A1–B1</p>
-</div>
+<p id="result"></p>
+<p id="score">Бали: 0</p>
 
-<div class="card">
-<h3>Build Your Dictionary</h3>
-<p>Створюй власні словники</p>
-</div>
-
-<div class="card">
-<h3>Grammar Battle</h3>
-<p>Граматика у форматі гри</p>
-</div>
-
-</div>
-
+<br>
 <a href="index.html">← Назад</a>
 
-<footer>
-© 2026 ESLflash-english
-</footer>
+<script src="trainer.js"></script>
 
 </body>
-</html>
+</html>Connect trainer game

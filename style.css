@@ -60,3 +60,36 @@ footer {
     margin-top: 40px;
     padding: 20px;
 }
+.games-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.game-card {
+    background: #222;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+}
+
+.game-card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: orange;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.game-card button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}

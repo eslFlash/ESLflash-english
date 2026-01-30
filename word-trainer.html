@@ -8,19 +8,29 @@
 </head>
 <body>
 
-<h1>Word Trainer</h1>
+<div class="trainer-container">
 
-<h2 id="word">Завантаження...</h2>
+    <h1>Word Trainer</h1>
 
-<input type="text" id="answer" placeholder="Введи переклад">
-<br><br>
-<button onclick="checkAnswer()">Перевірити</button>
+    <select id="dictionarySelect">
+        <option value="basic">Basic Words</option>
+        <option value="food">Food</option>
+        <option value="verbs">Verbs</option>
+    </select>
 
-<p id="result"></p>
-<p id="score">Бали: 0</p>
+    <div class="word-box">
+        <h2 id="word">Завантаження...</h2>
+    </div>
 
-<br>
-<a href="games.html">← Назад до ігор</a>
+    <input type="text" id="answer" placeholder="Введи переклад">
+    <button onclick="checkAnswer()">Перевірити</button>
+
+    <p id="result"></p>
+    <p id="score">Бали: 0</p>
+
+    <a href="games.html" class="back-btn">← Назад до ігор</a>
+
+</div>
 
 <script src="trainer.js"></script>
 

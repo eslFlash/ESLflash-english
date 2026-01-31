@@ -1,3 +1,22 @@
 [
-    { "en": "apple", "ua": "яблуко", "image": "images/apple.jpg" },
+  { "en": "apple", "ua": "яблуко", "image": "images/apple.jpg" },
+  { "en": "banana", "ua": "банан", "image": "images/banana.jpg" },
+  { "en": "orange", "ua": "апельсин", "image": "images/orange.jpg" },
+  { "en": "bread", "ua": "хліб", "image": "images/bread.jpg" },
+  { "en": "milk", "ua": "молоко", "image": "images/milk.jpg" },
+  { "en": "cheese", "ua": "сир", "image": "images/cheese.jpg" },
+  { "en": "eggs", "ua": "яйця", "image": "images/eggs.jpg" },
+  { "en": "rice", "ua": "рис", "image": "images/rice.jpg" },
+  { "en": "carrot", "ua": "морква", "image": "images/carrot.jpg" },
+  { "en": "chicken", "ua": "курка", "image": "images/chicken.jpg" },
+  { "en": "fish", "ua": "риба", "image": "images/fish.jpg" },
+  { "en": "watermelon", "ua": "кавун", "image": "images/watermelon.jpg" },
+  { "en": "grapes", "ua": "виноград", "image": "images/grapes.jpg" },
+  { "en": "lemon", "ua": "лимон", "image": "images/lemon.jpg" },
+  { "en": "potato", "ua": "картопля", "image": "images/potato.jpg" },
+  { "en": "tomato", "ua": "помідор", "image": "images/tomato.jpg" },
+  { "en": "cucumber", "ua": "огірок", "image": "images/cucumber.jpg" },
+  { "en": "juice", "ua": "сік", "image": "images/juice.jpg" },
+  { "en": "butter", "ua": "масло", "image": "images/butter.jpg" },
+  { "en": "soup", "ua": "суп", "image": "images/soup.jpg" }
 ]

@@ -1,5 +1,4 @@
 [
-    { "en": "apple", "ua": "яблуко", "image": "images/apple.jpg" },
     { "en": "dog", "ua": "собака", "image": "images/dog.jpg" },
     { "en": "run", "ua": "бігти", "image": "images/run.jpg" }
 ]

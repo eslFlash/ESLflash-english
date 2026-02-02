@@ -1,6 +1,6 @@
 [
   { "en": "water", "ua": "вода", "image": "images/water.jpg" },
-  { "en": "table", "ua": "стол", "image": "images/table.jpg" },
+  { "en": "table", "ua": "стіл", "image": "images/table.jpg" },
   { "en": "pen", "ua": "ручка", "image": "images/pen.jpg" },
   { "en": "mouth", "ua": "місто", "image": "images/mouth.jpg" },
   { "en": "book", "ua": "книга", "image": "images/book.jpg" },

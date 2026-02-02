@@ -2,7 +2,7 @@
   { "en": "water", "ua": "вода", "image": "images/water.jpg" },
   { "en": "table", "ua": "стіл", "image": "images/table.jpg" },
   { "en": "pen", "ua": "ручка", "image": "images/pen.jpg" },
-  { "en": "mouth", "ua": "місто", "image": "images/mouth.jpg" },
+  { "en": "city", "ua": "місто", "image": "images/mouth.jpg" },
   { "en": "book", "ua": "книга", "image": "images/book.jpg" },
   { "en": "chair", "ua": "стілець", "image": "images/chair.jpg" },
   { "en": "door", "ua": "двері", "image": "images/door.jpg" },

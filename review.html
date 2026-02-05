@@ -18,16 +18,14 @@
         <option value="verbs">Verbs</option>
     </select>
 
-    <div class="card" onclick="flipCard()">
-        <div class="card-inner">
+    <div class="card" id="card">
+        <div class="card-inner" id="cardInner">
 
             <div class="card-front">
-    <img id="reviewImage" src="" alt="word image">
-    <h2 id="reviewWord"></h2>
-   <button onclick="speakWord(event)" class="speak-btn">🔊 Listen</button>
-
-</div>
-
+                <img id="reviewImage" src="" alt="">
+                <h2 id="reviewWord"></h2>
+                <button class="speak-btn" onclick="speakWord(event)">🎙️</button>
+            </div>
 
             <div class="card-back">
                 <h2 id="reviewTranslation"></h2>
@@ -35,6 +33,19 @@
 
         </div>
     </div>
+
+    <div class="review-buttons">
+        <button onclick="prevWord()">← Попереднє</button>
+        <button onclick="nextWord()">Наступне →</button>
+    </div>
+
+    <a href="games.html" class="back-btn">← Назад</a>
+
+</div>
+
+<script src="review.js"></script>
+</body>
+</html>    </div>
 
     <button onclick="nextWord()">Наступне слово</button>
 

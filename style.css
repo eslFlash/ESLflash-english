@@ -265,3 +265,92 @@ select {
 .speak-btn:hover {
     background: #e66700;
 }
+.review-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.card {
+    width: 340px;
+    height: 420px;
+    margin: 20px auto;
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+/* ОДНА КАРТКА БЕЗ ПОДВІЙНОЇ РАМКИ */
+
+.card-front {
+    background: white;
+    border: 4px solid #ff7a00;
+}
+
+.card-back {
+    background: #ff7a00;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.speak-btn {
+    margin-top: 15px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    transform: scale(1.2);
+}
+
+.review-buttons {
+    margin-top: 15px;
+}
+
+.review-buttons button {
+    padding: 10px 18px;
+    margin: 5px;
+    border: none;
+    border-radius: 12px;
+    background: #ff7a00;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.review-buttons button:hover {
+    background: #e56700;
+    }

@@ -1,37 +1,42 @@
 let words = [];
 let currentIndex = 0;
 
-async function loadReview() {
-    const response = await fetch("dictionaries/basic.json");
+const dictionarySelect = document.getElementById("dictionarySelect");
+
+dictionarySelect.addEventListener("change", loadDictionary);
+
+async function loadDictionary() {
+    const selected = dictionarySelect.value;
+
+    const response = await fetch(`dictionaries/${selected}.json`);
     words = await response.json();
-    showCard();
+
+    currentIndex = 0;
+    showWord();
 }
 
-function showCard() {
-    const word = words[currentIndex];
+function showWord() {
+    if (words.length === 0) return;
 
-    document.getElementById("cardImage").src = word.image;
-    document.getElementById("cardWord").textContent = word.en;
-    document.getElementById("cardTranslation").textContent = word.ua;
+    const wordObj = words[currentIndex];
 
-    speak(word.en);
+    document.getElementById("reviewWord").textContent = wordObj.word;
+    document.getElementById("reviewTranslation").textContent = wordObj.translation;
+    document.getElementById("reviewImage").src = wordObj.image;
 
-    document.getElementById("card").classList.remove("flip");
+    document.querySelector(".card").classList.remove("flipped");
 }
 
-function nextCard() {
-    currentIndex = (currentIndex + 1) % words.length;
-    showCard();
+function nextWord() {
+    currentIndex++;
+    if (currentIndex >= words.length) {
+        currentIndex = 0;
+    }
+    showWord();
 }
 
-function speak(text) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-US";
-    speechSynthesis.speak(utterance);
+function flipCard() {
+    document.querySelector(".card").classList.toggle("flipped");
 }
 
-document.getElementById("card").addEventListener("click", () => {
-    document.getElementById("card").classList.toggle("flip");
-});
-
-document.addEventListener("DOMContentLoaded", loadReview);
+loadDictionary();

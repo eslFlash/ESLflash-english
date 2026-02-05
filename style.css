@@ -251,3 +251,17 @@ select {
     object-fit: cover;
     border-radius: 15px;
 }
+.speak-btn {
+    margin-top: 10px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 10px;
+    background: #ff7a00;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.speak-btn:hover {
+    background: #e66700;
+}

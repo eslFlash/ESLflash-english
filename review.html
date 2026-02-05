@@ -7,35 +7,38 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="dictionary-select">
-  <label for="dictionary">Choose dictionary:</label>
-  <select id="dictionary">
-    <option value="verbs">Verbs</option>
-    <option value="food">Food</option>
-    <option value="basic">Basic</option>
-  </select>
-  <button onclick="loadSelectedDictionary()">Load</button>
-</div>
 
-<h1>Review Cards</h1>
+<div class="review-container">
 
-<div class="card-container">
-    <div class="card" id="card">
-        <div class="card-front">
-            <img id="cardImage" src="" alt="">
-            <h2 id="cardWord"></h2>
-        </div>
-        <div class="card-back">
-            <h2 id="cardTranslation"></h2>
+    <h1>Review</h1>
+
+    <select id="dictionarySelect">
+        <option value="basic">Basic</option>
+        <option value="food">Food</option>
+        <option value="verbs">Verbs</option>
+    </select>
+
+    <div class="card" onclick="flipCard()">
+        <div class="card-inner">
+
+            <div class="card-front">
+                <img id="reviewImage" src="" alt="word image">
+                <h2 id="reviewWord"></h2>
+            </div>
+
+            <div class="card-back">
+                <h2 id="reviewTranslation"></h2>
+            </div>
+
         </div>
     </div>
+
+    <button onclick="nextWord()">Наступне слово</button>
+
+    <a href="games.html" class="back-btn">← Назад</a>
+
 </div>
 
-<button onclick="nextCard()">Next</button>
-
-<a href="index.html" class="back-btn">← На головну</a>
-
 <script src="review.js"></script>
-
 </body>
 </html>

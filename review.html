@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="review-container">
+<div class="review-wrapper">
 
     <h1>Review</h1>
 
@@ -21,20 +21,33 @@
     <div class="card" id="card">
         <div class="card-inner" id="cardInner">
 
-            <div class="card-front">
-                <img id="reviewImage" src="" alt="">
+            <div class="card-face card-front">
+                <img id="reviewImage">
                 <h2 id="reviewWord"></h2>
-                <button class="speak-btn" onclick="speakWord(event)">🎙️</button>
+                <button id="speakBtn">🎙️</button>
             </div>
 
-            <div class="card-back">
+            <div class="card-face card-back">
                 <h2 id="reviewTranslation"></h2>
             </div>
 
         </div>
     </div>
 
-    <div class="review-buttons">
+    <div class="nav-buttons">
+        <button id="prevBtn">← Попереднє</button>
+        <button id="nextBtn">Наступне →</button>
+    </div>
+
+    <div style="margin-top:20px;">
+        <a href="games.html">← Назад</a>
+    </div>
+
+</div>
+
+<script src="review.js"></script>
+</body>
+</html>    <div class="review-buttons">
         <button onclick="prevWord()">← Попереднє</button>
         <button onclick="nextWord()">Наступне →</button>
     </div>

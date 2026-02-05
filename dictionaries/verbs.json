@@ -1,22 +1,102 @@
 [
-  { "en": "eat", "ua": "їсти", "image": "images/eat.jpg" },
-  { "en": "drink", "ua": "пити", "image": "images/drink.jpg" },
-  { "en": "run", "ua": "бігти", "image": "images/run.jpg" },
-  { "en": "walk", "ua": "ходити", "image": "images/walk.jpg" },
-  { "en": "see", "ua": "бачити", "image": "images/see.jpg" },
-  { "en": "play", "ua": "грати", "image": "images/play.jpg" },
-  { "en": "read", "ua": "читати", "image": "images/read.jpg" },
-  { "en": "write", "ua": "писати", "image": "images/write.jpg" },
-  { "en": "sleep", "ua": "спати", "image": "images/sleep.jpg" },
-  { "en": "swim", "ua": "плавати", "image": "images/swim.jpg" },
-  { "en": "dance", "ua": "танцювати", "image": "images/dance.jpg" },
-  { "en": "sing", "ua": "співати", "image": "images/sing.jpg" },
-  { "en": "cook", "ua": "готувати", "image": "images/cook.jpg" },
-  { "en": "drive", "ua": "їхати (на машині)", "image": "images/drive.jpg" },
-  { "en": "jump", "ua": "стрибати", "image": "images/jump.jpg" },
-  { "en": "open", "ua": "відкривати", "image": "images/open.jpg" },
-  { "en": "close", "ua": "закривати", "image": "images/close.jpg" },
-  { "en": "help", "ua": "допомагати", "image": "images/help.jpg" },
-  { "en": "look", "ua": "дивитись", "image": "images/look.jpg" },
-  { "en": "find", "ua": "знаходити", "image": "images/find.jpg" }
+  {
+    "word": "run",
+    "translation": "бігти",
+    "image": "images/verbs/run.jpg"
+  },
+  {
+    "word": "walk",
+    "translation": "йти",
+    "image": "images/verbs/walk.jpg"
+  },
+  {
+    "word": "read",
+    "translation": "читати",
+    "image": "images/verbs/read.jpg"
+  },
+  {
+    "word": "write",
+    "translation": "писати",
+    "image": "images/verbs/write.jpg"
+  },
+  {
+    "word": "eat",
+    "translation": "їсти",
+    "image": "images/verbs/eat.jpg"
+  },
+  {
+    "word": "drink",
+    "translation": "пити",
+    "image": "images/verbs/drink.jpg"
+  },
+  {
+    "word": "sleep",
+    "translation": "спати",
+    "image": "images/verbs/sleep.jpg"
+  },
+  {
+    "word": "sit",
+    "translation": "сидіти",
+    "image": "images/verbs/sit.jpg"
+  },
+  {
+    "word": "stand",
+    "translation": "стояти",
+    "image": "images/verbs/stand.jpg"
+  },
+  {
+    "word": "jump",
+    "translation": "стрибати",
+    "image": "images/verbs/jump.jpg"
+  },
+  {
+    "word": "play",
+    "translation": "грати",
+    "image": "images/verbs/play.jpg"
+  },
+  {
+    "word": "open",
+    "translation": "відкривати",
+    "image": "images/verbs/open.jpg"
+  },
+  {
+    "word": "close",
+    "translation": "закривати",
+    "image": "images/verbs/close.jpg"
+  },
+  {
+    "word": "listen",
+    "translation": "слухати",
+    "image": "images/verbs/listen.jpg"
+  },
+  {
+    "word": "speak",
+    "translation": "говорити",
+    "image": "images/verbs/speak.jpg"
+  },
+  {
+    "word": "watch",
+    "translation": "дивитися",
+    "image": "images/verbs/watch.jpg"
+  },
+  {
+    "word": "work",
+    "translation": "працювати",
+    "image": "images/verbs/work.jpg"
+  },
+  {
+    "word": "study",
+    "translation": "вчитися",
+    "image": "images/verbs/study.jpg"
+  },
+  {
+    "word": "drive",
+    "translation": "керувати",
+    "image": "images/verbs/drive.jpg"
+  },
+  {
+    "word": "cook",
+    "translation": "готувати",
+    "image": "images/verbs/cook.jpg"
+  }
 ]

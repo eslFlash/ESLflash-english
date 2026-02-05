@@ -34,6 +34,18 @@ function nextWord() {
     }
     showWord();
 }
+function speakWord() {
+    if (words.length === 0) return;
+
+    const word = words[currentIndex].word;
+
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "en-US";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    speechSynthesis.speak(utterance);
+}
 
 function flipCard() {
     document.querySelector(".card").classList.toggle("flipped");

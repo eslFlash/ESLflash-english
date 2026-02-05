@@ -16,7 +16,21 @@ async function loadDictionary() {
 }
 
 function showWord() {
+   function speakWord(event) {
+    event.stopPropagation();
+
     if (words.length === 0) return;
+
+    const word = words[currentIndex].word;
+
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "en-US";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+
+    speechSynthesis.speak(utterance);
+}
+
 
     const wordObj = words[currentIndex];
 

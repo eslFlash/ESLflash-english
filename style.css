@@ -32,7 +32,7 @@ select {
     width: 300px;
     height: 360px;
     margin: 20px auto;
-    perspective: 800px;
+    perspective: 600px;
     cursor: pointer;
 }
 
@@ -129,3 +129,12 @@ button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 0 #c96a1c;
 }
+.game-card {
+    background: #222;
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 260px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(230, 126, 34, 0.4);
+                              }

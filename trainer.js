@@ -1,57 +1,53 @@
-let currentWords = [];
+let words = [];
 let currentWord = {};
 let score = 0;
 
-const wordElement = document.getElementById("word");
-const answerInput = document.getElementById("answer");
-const resultElement = document.getElementById("result");
-const scoreElement = document.getElementById("score");
-const dictionarySelect = document.getElementById("dictionarySelect");
+function loadDictionary() {
+    const selected = document.getElementById("dictionarySelect").value;
 
-async function loadDictionary(name) {
-    try {
-        const response = await fetch(`dictionaries/${name}.json`);
-        currentWords = await response.json();
-
-        if (!Array.isArray(currentWords) || currentWords.length === 0) {
-            wordElement.textContent = "Словник порожній";
-            return;
-        }
-
-        score = 0;
-        scoreElement.textContent = "Бали: 0";
-        getRandomWord();
-
-    } catch (error) {
-        wordElement.textContent = "Помилка завантаження словника";
-        console.error(error);
-    }
+    fetch(`dictionaries/${selected}.json`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Dictionary not found");
+            }
+            return response.json();
+        })
+        .then(data => {
+            words = data;
+            score = 0;
+            document.getElementById("score").innerText = "Бали: 0";
+            nextWord();
+        })
+        .catch(error => {
+            document.getElementById("word").innerText = "Помилка завантаження словника";
+            console.error(error);
+        });
 }
 
-function getRandomWord() {
-    currentWord = currentWords[Math.floor(Math.random() * currentWords.length)];
-    wordElement.textContent = currentWord.en;
+function nextWord() {
+    if (words.length === 0) return;
+
+    const randomIndex = Math.floor(Math.random() * words.length);
+    currentWord = words[randomIndex];
+
+    document.getElementById("word").innerText = currentWord.word;
+    document.getElementById("answer").value = "";
+    document.getElementById("result").innerText = "";
 }
 
 function checkAnswer() {
-    const userAnswer = answerInput.value.toLowerCase().trim();
+    const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
-    if (userAnswer === currentWord.ua) {
+    if (userAnswer === currentWord.translation.toLowerCase()) {
+        document.getElementById("result").innerText = "Правильно!";
         score++;
-        resultElement.textContent = "✅ Правильно!";
     } else {
-        resultElement.textContent = "❌ Правильна відповідь: " + currentWord.ua;
+        document.getElementById("result").innerText = "Неправильно! Правильна відповідь: " + currentWord.translation;
     }
 
-    scoreElement.textContent = "Бали: " + score;
-    answerInput.value = "";
-    setTimeout(getRandomWord, 800);
+    document.getElementById("score").innerText = "Бали: " + score;
+
+    setTimeout(nextWord, 1000);
 }
 
-dictionarySelect.addEventListener("change", () => {
-    loadDictionary(dictionarySelect.value);
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    loadDictionary(dictionarySelect.value);
-});
+window.onload = loadDictionary;

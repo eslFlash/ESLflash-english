@@ -30,8 +30,6 @@ function showWord() {
 
     speechSynthesis.speak(utterance);
 }
-
-
     const wordObj = words[currentIndex];
 
     document.getElementById("reviewWord").textContent = wordObj.word;

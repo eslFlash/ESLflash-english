@@ -72,8 +72,9 @@ select {
     color: white;
     transform: rotateY(180deg);
 }
-
 .card img {
+    display: block;
+    margin: 0 auto;
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -149,6 +150,7 @@ nav {
 nav a {
     display: block;
     width: 80%;
+    margin: 0 auto;
     max-width: 420px;
     padding: 16px 0;
     background: #e67e22;
@@ -194,6 +196,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .games-container {

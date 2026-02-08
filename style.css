@@ -198,3 +198,14 @@ nav a:hover {
     box-shadow: 0 0 15px rgba(230, 126, 34, 0.4);
     margin: 0 auto;
   }
+.main-logo {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-logo img {
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+}

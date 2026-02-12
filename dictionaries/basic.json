@@ -1,102 +1,179 @@
 [
-  {"word":"man","translation":"чоловік"},
-  {"word":"woman","translation":"жінка"},
-  {"word":"boy","translation":"хлопчик"},
-  {"word":"girl","translation":"дівчинка"},
-  {"word":"child","translation":"дитина"},
-  {"word":"friend","translation":"друг"},
-  {"word":"teacher","translation":"вчитель"},
-  {"word":"student","translation":"учень"},
-  {"word":"mother","translation":"мама"},
-  {"word":"father","translation":"тато"},
-  {"word":"brother","translation":"брат"},
-  {"word":"sister","translation":"сестра"},
-  {"word":"family","translation":"сім’я"},
-  {"word":"baby","translation":"немовля"},
-  {"word":"people","translation":"люди"},
+  {
+    "word": "boy",
+    "translation": "хлопчик",
+    "image": "images/basic/boy.jpg"
+  },
+  {
+    "word": "girl",
+    "translation": "дівчинка",
+    "image": "images/basic/girl.jpg"
+  },
+  {
+    "word": "man",
+    "translation": "чоловік",
+    "image": "images/basic/man.jpg"
+  },
+  {
+    "word": "woman",
+    "translation": "жінка",
+    "image": "images/basic/woman.jpg"
+  },
+  {
+    "word": "baby",
+    "translation": "немовля",
+    "image": "images/basic/baby.jpg"
+  },
+  {
+    "word": "mother",
+    "translation": "мама",
+    "image": "images/basic/mother.jpg"
+  },
+  {
+    "word": "father",
+    "translation": "тато",
+    "image": "images/basic/father.jpg"
+  },
+  {
+    "word": "teacher",
+    "translation": "вчитель",
+    "image": "images/basic/teacher.jpg"
+  },
+  {
+    "word": "student",
+    "translation": "учень",
+    "image": "images/basic/student.jpg"
+  },
+  {
+    "word": "friend",
+    "translation": "друг",
+    "image": "images/basic/friend.jpg"
+  },
 
-  {"word":"house","translation":"будинок"},
-  {"word":"flat","translation":"квартира"},
-  {"word":"room","translation":"кімната"},
-  {"word":"door","translation":"двері"},
-  {"word":"window","translation":"вікно"},
-  {"word":"table","translation":"стіл"},
-  {"word":"chair","translation":"стілець"},
-  {"word":"bed","translation":"ліжко"},
-  {"word":"floor","translation":"підлога"},
-  {"word":"wall","translation":"стіна"},
-  {"word":"kitchen","translation":"кухня"},
-  {"word":"bathroom","translation":"ванна кімната"},
-  {"word":"school","translation":"школа"},
-  {"word":"shop","translation":"магазин"},
-  {"word":"city","translation":"місто"},
+  {
+    "word": "house",
+    "translation": "будинок",
+    "image": "images/basic/house.jpg"
+  },
+  {
+    "word": "room",
+    "translation": "кімната",
+    "image": "images/basic/room.jpg"
+  },
+  {
+    "word": "door",
+    "translation": "двері",
+    "image": "images/basic/door.jpg"
+  },
+  {
+    "word": "window",
+    "translation": "вікно",
+    "image": "images/basic/window.jpg"
+  },
+  {
+    "word": "table",
+    "translation": "стіл",
+    "image": "images/basic/table.jpg"
+  },
+  {
+    "word": "chair",
+    "translation": "стілець",
+    "image": "images/basic/chair.jpg"
+  },
+  {
+    "word": "bed",
+    "translation": "ліжко",
+    "image": "images/basic/bed.jpg"
+  },
+  {
+    "word": "sofa",
+    "translation": "диван",
+    "image": "images/basic/sofa.jpg"
+  },
+  {
+    "word": "lamp",
+    "translation": "лампа",
+    "image": "images/basic/lamp.jpg"
+  },
+  {
+    "word": "kitchen",
+    "translation": "кухня",
+    "image": "images/basic/kitchen.jpg"
+  },
+  {
+    "word": "bathroom",
+    "translation": "ванна кімната",
+    "image": "images/basic/bathroom.jpg"
+  },
+  {
+    "word": "floor",
+    "translation": "підлога",
+    "image": "images/basic/floor.jpg"
+  },
+  {
+    "word": "wall",
+    "translation": "стіна",
+    "image": "images/basic/wall.jpg"
+  },
+  {
+    "word": "garden",
+    "translation": "сад",
+    "image": "images/basic/garden.jpg"
+  },
+  {
+    "word": "key",
+    "translation": "ключ",
+    "image": "images/basic/key.jpg"
+  },
 
-  {"word":"car","translation":"машина"},
-  {"word":"bus","translation":"автобус"},
-  {"word":"train","translation":"поїзд"},
-  {"word":"road","translation":"дорога"},
-  {"word":"street","translation":"вулиця"},
-  {"word":"park","translation":"парк"},
-  {"word":"river","translation":"річка"},
-  {"word":"sea","translation":"море"},
-  {"word":"sun","translation":"сонце"},
-  {"word":"moon","translation":"місяць"},
-  {"word":"sky","translation":"небо"},
-  {"word":"tree","translation":"дерево"},
-  {"word":"flower","translation":"квітка"},
-  {"word":"animal","translation":"тварина"},
-  {"word":"dog","translation":"собака"},
-
-  {"word":"cat","translation":"кіт"},
-  {"word":"bird","translation":"птах"},
-  {"word":"fish","translation":"риба"},
-  {"word":"time","translation":"час"},
-  {"word":"day","translation":"день"},
-  {"word":"night","translation":"ніч"},
-  {"word":"morning","translation":"ранок"},
-  {"word":"evening","translation":"вечір"},
-  {"word":"week","translation":"тиждень"},
-  {"word":"month","translation":"місяць"},
-  {"word":"year","translation":"рік"},
-  {"word":"number","translation":"число"},
-  {"word":"money","translation":"гроші"},
-  {"word":"name","translation":"ім’я"},
-  {"word":"color","translation":"колір"},
-
-  {"word":"red","translation":"червоний"},
-  {"word":"blue","translation":"синій"},
-  {"word":"green","translation":"зелений"},
-  {"word":"white","translation":"білий"},
-  {"word":"black","translation":"чорний"},
-  {"word":"big","translation":"великий"},
-  {"word":"small","translation":"маленький"},
-  {"word":"hot","translation":"гарячий"},
-  {"word":"cold","translation":"холодний"},
-  {"word":"new","translation":"новий"},
-  {"word":"old","translation":"старий"},
-  {"word":"good","translation":"хороший"},
-  {"word":"bad","translation":"поганий"},
-  {"word":"happy","translation":"щасливий"},
-  {"word":"sad","translation":"сумний"},
-
-  {"word":"long","translation":"довгий"},
-  {"word":"short","translation":"короткий"},
-  {"word":"clean","translation":"чистий"},
-  {"word":"dirty","translation":"брудний"},
-  {"word":"fast","translation":"швидкий"},
-  {"word":"slow","translation":"повільний"},
-  {"word":"young","translation":"молодий"},
-  {"word":"strong","translation":"сильний"},
-  {"word":"easy","translation":"легкий"},
-  {"word":"difficult","translation":"важкий"},
-  {"word":"left","translation":"лівий"},
-  {"word":"right","translation":"правий"},
-  {"word":"first","translation":"перший"},
-  {"word":"last","translation":"останній"},
-  {"word":"question","translation":"питання"},
-  {"word":"answer","translation":"відповідь"},
-  {"word":"problem","translation":"проблема"},
-  {"word":"idea","translation":"ідея"},
-  {"word":"work","translation":"робота"},
-  {"word":"job","translation":"робота (працевлаштування)"}
+  {
+    "word": "shirt",
+    "translation": "сорочка",
+    "image": "images/basic/shirt.jpg"
+  },
+  {
+    "word": "dress",
+    "translation": "сукня",
+    "image": "images/basic/dress.jpg"
+  },
+  {
+    "word": "shoes",
+    "translation": "взуття",
+    "image": "images/basic/shoes.jpg"
+  },
+  {
+    "word": "hat",
+    "translation": "капелюх",
+    "image": "images/basic/hat.jpg"
+  },
+  {
+    "word": "jacket",
+    "translation": "куртка",
+    "image": "images/basic/jacket.jpg"
+  },
+  {
+    "word": "jeans",
+    "translation": "джинси",
+    "image": "images/basic/jeans.jpg"
+  },
+  {
+    "word": "socks",
+    "translation": "шкарпетки",
+    "image": "images/basic/socks.jpg"
+  },
+  {
+    "word": "coat",
+    "translation": "пальто",
+    "image": "images/basic/coat.jpg"
+  },
+  {
+    "word": "skirt",
+    "translation": "спідниця",
+    "image": "images/basic/skirt.jpg"
+  },
+  {
+    "word": "T-shirt",
+    "translation": "футболка",
+    "image": "images/basic/t-shirt.jpg"
+  }
 ]

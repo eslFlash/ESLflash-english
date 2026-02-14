@@ -49,7 +49,6 @@
     "translation": "друзі",
     "image": "images/basic/friends.jpg"
   },
-
   {
     "word": "house",
     "translation": "будинок",
@@ -125,7 +124,6 @@
     "translation": "ключ",
     "image": "images/basic/key.jpg"
   },
-
   {
     "word": "shirt",
     "translation": "сорочка",
@@ -176,4 +174,331 @@
     "translation": "футболка",
     "image": "images/basic/t-shirt.jpg"
   }
+  {
+    "word": "book",
+    "translation": "книга",
+    "image": "images/basic/book.jpg"
+  },
+  {
+    "word": "pen",
+    "translation": "ручка",
+    "image": "images/basic/pen.jpg"
+  },
+  {
+    "word": "pencil",
+    "translation": "олівець",
+    "image": "images/basic/pencil.jpg"
+  },
+  {
+    "word": "bag",
+    "translation": "рюкзак",
+    "image": "images/basic/bag.jpg"
+  },
+  {
+    "word": "desk",
+    "translation": "парта",
+    "image": "images/basic/desk.jpg"
+  },
+  {
+    "word": "notebook",
+    "translation": "зошит",
+    "image": "images/basic/notebook.jpg"
+  },
+  {
+    "word": "paper",
+    "translation": "папір",
+    "image": "images/basic/paper.jpg"
+  },
+  {
+    "word": "map",
+    "translation": "карта",
+    "image": "images/basic/map.jpg"
+  },
+  {
+    "word": "computer",
+    "translation": "комп'ютер",
+    "image": "images/basic/computer.jpg"
+  },
+  {
+    "word": "phone",
+    "translation": "телефон",
+    "image": "images/basic/phone.jpg"
+  },
+  {
+    "word": "city",
+    "translation": "місто",
+    "image": "images/basic/city.jpg"
+  },
+  {
+    "word": "school",
+    "translation": "школа",
+    "image": "images/basic/school.jpg"
+  },
+  {
+    "word": "park",
+    "translation": "парк",
+    "image": "images/basic/park.jpg"
+  },
+  {
+    "word": "shop",
+    "translation": "магазин",
+    "image": "images/basic/shop.jpg"
+  },
+  {
+    "word": "hospital",
+    "translation": "лікарня",
+    "image": "images/basic/hospital.jpg"
+  },
+  {
+    "word": "street",
+    "translation": "вулиця",
+    "image": "images/basic/street.jpg"
+  },
+  {
+    "word": "bus stop",
+    "translation": "зупинка автобуса",
+    "image": "images/basic/bus-stop.jpg"
+  },
+  {
+    "word": "airport",
+    "translation": "аеропорт",
+    "image": "images/basic/airport.jpg"
+  },
+  {
+    "word": "station",
+    "translation": "станція",
+    "image": "images/basic/station.jpg"
+  },
+  {
+    "word": "farm",
+    "translation": "ферма",
+    "image": "images/basic/farm.jpg"
+  },
+  {
+    "word": "dog",
+    "translation": "собака",
+    "image": "images/basic/dog.jpg"
+  },
+  {
+    "word": "cat",
+    "translation": "кіт",
+    "image": "images/basic/cat.jpg"
+  },
+  {
+    "word": "bird",
+    "translation": "птах",
+    "image": "images/basic/bird.jpg"
+  },
+  {
+    "word": "fish",
+    "translation": "риба",
+    "image": "images/basic/fish.jpg"
+  },
+  {
+    "word": "cow",
+    "translation": "корова",
+    "image": "images/basic/cow.jpg"
+  },
+  {
+    "word": "horse",
+    "translation": "кінь",
+    "image": "images/basic/horse.jpg"
+  },
+  {
+    "word": "sheep",
+    "translation": "вівця",
+    "image": "images/basic/sheep.jpg"
+  },
+  {
+    "word": "chicken",
+    "translation": "курка",
+    "image": "images/basic/chicken.jpg"
+  },
+  {
+    "word": "pig",
+    "translation": "свиня",
+    "image": "images/basic/pig.jpg"
+  },
+  {
+    "word": "rabbit",
+    "translation": "кролик",
+    "image": "images/basic/rabbit.jpg"
+  },
+  {
+    "word": "cup",
+    "translation": "чашка",
+    "image": "images/basic/cup.jpg"
+  },
+  {
+    "word": "plate",
+    "translation": "тарілка",
+    "image": "images/basic/plate.jpg"
+  },
+  {
+    "word": "spoon",
+    "translation": "ложка",
+    "image": "images/basic/spoon.jpg"
+  },
+  {
+    "word": "fork",
+    "translation": "виделка",
+    "image": "images/basic/fork.jpg"
+  },
+  {
+    "word": "knife",
+    "translation": "ніж",
+    "image": "images/basic/knife.jpg"
+  },
+  {
+    "word": "bottle",
+    "translation": "пляшка",
+    "image": "images/basic/bottle.jpg"
+  },
+  {
+    "word": "clock",
+    "translation": "годинник (настінний)",
+    "image": "images/basic/clock.jpg"
+  },
+  {
+    "word": "watch",
+    "translation": "годинник (наручний)",
+    "image": "images/basic/watch.jpg"
+  },
+  {
+    "word": "bag",
+    "translation": "сумка",
+    "image": "images/basic/bag-handbag.jpg"
+  },
+  {
+    "word": "box",
+    "translation": "коробка",
+    "image": "images/basic/box.jpg"
+  },
+  {
+    "word": "ball",
+    "translation": "м'яч",
+    "image": "images/basic/ball.jpg"
+  },
+  {
+    "word": "car",
+    "translation": "автомобіль",
+    "image": "images/basic/car.jpg"
+  },
+  {
+    "word": "bike",
+    "translation": "велосипед",
+    "image": "images/basic/bike.jpg"
+  },
+  {
+    "word": "bus",
+    "translation": "автобус",
+    "image": "images/basic/bus.jpg"
+  },
+  {
+    "word": "train",
+    "translation": "потяг",
+    "image": "images/basic/train.jpg"
+  },
+
+  {
+    "word": "red",
+    "translation": "червоний",
+    "image": "images/basic/red.jpg"
+  },
+  {
+    "word": "blue",
+    "translation": "синій",
+    "image": "images/basic/blue.jpg"
+  },
+  {
+    "word": "green",
+    "translation": "зелений",
+    "image": "images/basic/green.jpg"
+  },
+  {
+    "word": "yellow",
+    "translation": "жовтий",
+    "image": "images/basic/yellow.jpg"
+  },
+  {
+    "word": "black",
+    "translation": "чорний",
+    "image": "images/basic/black.jpg"
+  },
+  {
+    "word": "white",
+    "translation": "білий",
+    "image": "images/basic/white.jpg"
+  },
+  {
+    "word": "orange",
+    "translation": "помаранчевий",
+    "image": "images/basic/orange.jpg"
+  },
+  {
+    "word": "pink",
+    "translation": "рожевий",
+    "image": "images/basic/pink.jpg"
+  },
+  {
+    "word": "brown",
+    "translation": "коричневий",
+    "image": "images/basic/brown.jpg"
+  },
+  {
+    "word": "purple",
+    "translation": "фіолетовий",
+    "image": "images/basic/purple.jpg"
+  },
+  {
+    "word": "name",
+    "translation": "ім'я",
+    "image": "images/basic/name.jpg"
+  },
+  {
+    "word": "family",
+    "translation": "сім'я",
+    "image": "images/basic/family.jpg"
+  },
+  {
+    "word": "picture",
+    "translation": "картина",
+    "image": "images/basic/picture.jpg"
+  },
+  {
+    "word": "music",
+    "translation": "музика",
+    "image": "images/basic/music.jpg"
+  },
+  {
+    "word": "food",
+    "translation": "їжа",
+    "image": "images/basic/food.jpg"
+  },
+  {
+    "word": "water",
+    "translation": "вода",
+    "image": "images/basic/water.jpg"
+  },
+  {
+    "word": "milk",
+    "translation": "молоко",
+    "image": "images/basic/milk.jpg"
+  },
+  {
+    "word": "money",
+    "translation": "гроші",
+    "image": "images/basic/money.jpg"
+  },
+  {
+    "word": "gift",
+    "translation": "подарунок",
+    "image": "images/basic/gift.jpg"
+  },
+  {
+    "word": "world",
+    "translation": "світ",
+    "image": "images/basic/world.jpg"
+  }
 ]
+

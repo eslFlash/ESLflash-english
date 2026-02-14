@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Match | ESLflash-english</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Word Match</h1>
+
+<select id="dictionarySelect">
+    <option value="basic">Basic</option>
+    <option value="food">Food</option>
+    <option value="verbs">Verbs</option>
+</select>
+
+<div id="gameArea" class="review-container">
+
+    <div id="progress">0 / 0</div>
+
+    <div id="wordBox">
+        <h2 id="matchWord">Loading...</h2>
+        <button id="speakBtn">🔊</button>
+    </div>
+
+    <div id="answersGrid" class="games-container"></div>
+
+</div>
+
+<div class="nav-buttons">
+    <button onclick="restartGame()">Restart</button>
+    <a href="games.html">← Назад</a>
+</div>
+
+<script src="word-match.js"></script>
+</body>
+</html></html>

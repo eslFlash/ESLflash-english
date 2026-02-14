@@ -173,7 +173,7 @@
     "word": "T-shirt",
     "translation": "футболка",
     "image": "images/basic/t-shirt.jpg"
-  }
+  },
   {
     "word": "book",
     "translation": "книга",
@@ -399,7 +399,6 @@
     "translation": "потяг",
     "image": "images/basic/train.jpg"
   },
-
   {
     "word": "red",
     "translation": "червоний",

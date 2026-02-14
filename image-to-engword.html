@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image to Word | ESLflash</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Image → English Word</h1>
+
+<select id="dictionarySelect">
+    <option value="basic">Basic</option>
+    <option value="food">Food</option>
+    <option value="verbs">Verbs</option>
+</select>
+
+<div class="review-container">
+
+    <div id="score">0 / 10</div>
+
+    <div id="imageBox"></div>
+
+    <div id="answersBox"></div>
+
+    <button onclick="startGame()">Play</button>
+
+</div>
+
+<div class="nav-buttons">
+    <a href="games.html">← Назад</a>
+</div>
+
+<script src="image-to-engword.js"></script>
+
+</body>
+</html>

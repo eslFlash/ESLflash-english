@@ -1,8 +1,15 @@
 const topics = [
-  { id: "can-affirmative", title: "CAN – Affirmative" },
-  { id: "can-negative", title: "CAN – Negative" },
-  { id: "can-questions", title: "CAN – Questions" },
-  { id: "present-simple-aff", title: "Present Simple – Affirmative" }
+{ id: "can-neg", title: "CAN - Negative" },
+{ id: "can-que", title: "CAN - Questions" },
+{ id: "there-is-aff", title: "There is - Affirmative" },
+{ id: "there-is-neg", title: "There is - Negative" },
+{ id: "there-is-que", title: "There is - Questions" },
+{ id: "there-are-aff", title: "There are - Affirmative" },
+{ id: "there-are-neg", title: "There are - Negative" },
+{ id: "there-are-que", title: "There are - Questions" },
+{ id: "ps-aff", title: "Present Simple - Affirmative" },
+{ id: "ps-neg", title: "Present Simple - Negative" },
+{ id: "ps-que", title: "Present Simple - Questions" },: "Present Simple – Affirmative" }
 ];
 
 const menu = document.getElementById("menu");

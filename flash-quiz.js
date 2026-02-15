@@ -110,10 +110,27 @@ function handleAnswer(button, correct, card){
   },500);
 }
 
-function applyEffect(tile,card){
+function applyEffect(tile, card){
+
+  const opponent = currentPlayer===1 ? 2 : 1;
+
   executeEffect(tile);
+
+  modal.style.display="flex";
+  modal.innerHTML=`
+    <div style="background:black;padding:30px;text-align:center">
+      <h2 style="color:orange">${tile.text}</h2>
+      <p style="margin-top:10px">
+        Player ${currentPlayer} affected
+      </p>
+      <button onclick="closeEffect(${tiles.indexOf(tile)})" 
+              style="margin-top:20px;padding:10px 25px;font-size:18px">
+        OK
+      </button>
+    </div>
+  `;
+
   card.innerHTML = tile.text;
-  finishTurn(card);
 }
 
 function executeEffect(tile){

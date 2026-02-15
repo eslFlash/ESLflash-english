@@ -1,15 +1,15 @@
 const topics = [
-{ id: "can-neg", title: "CAN - Negative" },
-{ id: "can-que", title: "CAN - Questions" },
-{ id: "there-is-aff", title: "There is - Affirmative" },
-{ id: "there-is-neg", title: "There is - Negative" },
-{ id: "there-is-que", title: "There is - Questions" },
-{ id: "there-are-aff", title: "There are - Affirmative" },
-{ id: "there-are-neg", title: "There are - Negative" },
-{ id: "there-are-que", title: "There are - Questions" },
-{ id: "ps-aff", title: "Present Simple - Affirmative" },
-{ id: "ps-neg", title: "Present Simple - Negative" },
-{ id: "ps-que", title: "Present Simple - Questions" },: "Present Simple – Affirmative" };
+{ id: "can-negative", title: "CAN - Negative" },
+{ id: "can-questions", title: "CAN - Questions" },
+{ id: "there-is-affirmative", title: "There is - Affirmative" },
+{ id: "there-is-negative", title: "There is - Negative" },
+{ id: "there-is-questions", title: "There is - Questions" },
+{ id: "there-are-affirmative", title: "There are - Affirmative" },
+{ id: "there-are-negative", title: "There are - Negative" },
+{ id: "there-are-questions", title: "There are - Questions" },
+{ id: "ps-affirmative", title: "Present Simple - Affirmative" },
+{ id: "ps-negative", title: "Present Simple - Negative" },
+{ id: "ps-questions", title: "Present Simple - Questions" }
 ];
 
 const menu = document.getElementById("menu");

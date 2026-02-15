@@ -123,14 +123,26 @@ function showQuestion(tile,card){
 }
 
 function handleAnswer(button, correct, card){
+
+  const buttons = document.querySelectorAll(".answerBtn");
+
+  buttons.forEach(btn=>{
+    btn.disabled=true;
+    if(btn.textContent===correct){
+      btn.style.background="green";
+    }
+  });
+
   if(button.textContent===correct){
     scores[currentPlayer]+=25;
+  } else {
+    button.style.background="red";
   }
 
   setTimeout(()=>{
     modal.style.display="none";
     finishTurn(card);
-  },500);
+  },800);
 }
 
 function applyEffect(tile, card){

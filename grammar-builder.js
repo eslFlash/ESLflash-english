@@ -9,7 +9,7 @@ const topics = [
 { id: "there-are-que", title: "There are - Questions" },
 { id: "ps-aff", title: "Present Simple - Affirmative" },
 { id: "ps-neg", title: "Present Simple - Negative" },
-{ id: "ps-que", title: "Present Simple - Questions" },: "Present Simple – Affirmative" }
+{ id: "ps-que", title: "Present Simple - Questions" },: "Present Simple – Affirmative" };
 ];
 
 const menu = document.getElementById("menu");

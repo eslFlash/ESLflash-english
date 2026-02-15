@@ -133,6 +133,16 @@ function applyEffect(tile, card){
   card.innerHTML = tile.text;
 }
 
+function closeEffect(index){
+
+  modal.style.display="none";
+
+  const cards = document.querySelectorAll(".game-card");
+  const card = cards[index];
+
+  finishTurn(card);
+}
+
 function executeEffect(tile){
 
   const opponent = currentPlayer===1 ? 2 : 1;

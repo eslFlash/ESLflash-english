@@ -88,9 +88,32 @@ function showQuestion(tile,card){
 
   modal.style.display="flex";
   modal.innerHTML=`
-    <div style="background:black;padding:20px">
-      <img src="${tile.image}" style="max-width:250px"><br><br>
-      ${options.map(o=>`<button class="answerBtn">${o}</button>`).join("")}
+    <div style="
+      background:black;
+      width:100%;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    ">
+
+      <img src="${tile.image}" 
+           style="max-width:90%; max-height:50vh; margin-bottom:30px">
+
+      ${options.map(o=>`
+        <button class="answerBtn" 
+          style="
+            width:90%;
+            margin:10px 0;
+            padding:15px;
+            font-size:20px;
+          ">
+          ${o}
+        </button>
+      `).join("")}
+
     </div>
   `;
 

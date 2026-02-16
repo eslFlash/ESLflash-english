@@ -262,3 +262,54 @@ nav a:hover {
   font-weight: bold;
   border-radius: 6px;
 }
+/* ===== FLASH QUIZ GRID ===== */
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 10px;
+}
+
+.tile {
+  background: #e67e22;
+  color: #000;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 25px 0;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 0 #c96a1c;
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 0 #c96a1c;
+}
+
+.tile:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #c96a1c;
+}
+
+.tile.used {
+  background: #111;
+  color: #444;
+  box-shadow: none;
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .games-grid {
+    gap: 8px;
+  }
+
+  .tile {
+    font-size: 18px;
+    padding: 18px 0;
+  }
+}

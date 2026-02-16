@@ -10,27 +10,30 @@
 
 <h1>Flash Quiz</h1>
 
-<select id="dictionarySelect">
-    <option value="">Select dictionary</option>
-</select>
-<select id="modeSelect">
-    <option value="1">1 Player</option>
-    <option value="2">2 Players</option>
-</select>
+<div class="quiz-controls">
 
-<br><br>
+  <select id="dictionarySelect">
+    <option value="">Оберіть словник</option>
+  </select>
 
-<button onclick="startGame()">Play</button>
+  <select id="modeSelect">
+    <option value="1">1 Гравець</option>
+    <option value="2">2 Гравці</option>
+  </select>
 
-<div id="scoreBoard" style="margin-top:20px;"></div>
+  <button id="btnPlay">Play</button>
 
-<div id="gameGrid" class="games-grid" style="margin-top:30px;"></div>
+</div>
 
-<div id="modal" style="display:none;"></div>
+<div id="scoreBoard"></div>
+
+<div id="gridArea" class="games-grid"></div>
+
+<div id="modal" class="modal-hidden"></div>
 
 <br>
 <a href="games.html">← Назад</a>
-    
+
 <script src="dictionaries.js"></script>
 <script src="flash-quiz.js"></script>
 

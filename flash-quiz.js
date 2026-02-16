@@ -104,10 +104,12 @@ function showQuestion(tile, card){
 
   modal.style.display = "flex";
   modal.innerHTML = `
-    <div style="background:#000; padding:20px; text-align:center;">
-      <img src="${tile.image}" alt="" style="max-width:80%; margin-bottom:20px;">
-      ${options.map(o=>`<button class="optBtn">${o}</button><br>`).join("")}
-      <p style="margin-top:10px; color:white;">(${tile.translation})</p>
+    <div class="quiz-modal">
+      <img src="${tile.image}" class="quiz-image">
+      
+      <div class="quiz-buttons">
+        ${options.map(o=>`<button class="optBtn">${o}</button>`).join("")}
+      </div>
     </div>
   `;
 
@@ -115,6 +117,7 @@ function showQuestion(tile, card){
     btn.onclick = () => handleAnswer(btn, tile.word, card);
   });
 }
+
 
 function handleAnswer(button, correct, card){
   const allBtns = document.querySelectorAll(".optBtn");

@@ -223,7 +223,7 @@ nav a:hover {
 
 .quiz-modal {
   width: 95%;
-  max-width: 500px;
+  max-width: 600px;
   height: 90vh;
   background: #000;
   border: 3px solid #e67e22;
@@ -247,10 +247,11 @@ nav a:hover {
 }
 
 .quiz-options {
-  padding: 10px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-y: auto;
 }
 
 .optBtn {

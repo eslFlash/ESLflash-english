@@ -313,4 +313,17 @@ nav a:hover {
     font-size: 18px;
     padding: 18px 0;
   }
+
+    .games-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto;
 }

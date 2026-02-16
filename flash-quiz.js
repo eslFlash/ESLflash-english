@@ -1,84 +1,224 @@
-// — — Flash Quiz Logic — —
 const dictionarySelect = document.getElementById("dictionarySelect");
 const modeSelect = document.getElementById("modeSelect");
 const btnPlay = document.getElementById("btnPlay");
-const gridArea = document.getElementById("gridArea");
+const gameGrid = document.getElementById("gameGrid");
 const scoreBoard = document.getElementById("scoreBoard");
 const modal = document.getElementById("modal");
 
-let activeDict = null;
 let tiles = [];
-let score = 0;
+let mode = 1;
+let currentPlayer = 1;
+let scores = {1:0,2:0};
+let usedCount = 0;
 
-// — Load dict into select menu
-function loadDictionaries() {
-  Object.keys(dictionaries).forEach(key => {
-    const opt = document.createElement("option");
-    opt.value = key;
-    opt.textContent = key;
-    dictionarySelect.appendChild(opt);
-  });
-}
+// effect cards
+const EFFECTS = [
+  {text:"Steal 30", action:"steal", value:30},
+  {text:"Lose 25", action:"lose", value:25},
+  {text:"Gain 50", action:"gain", value:50},
+  {text:"Reset you", action:"resetSelf"},
+  {text:"Reset opp", action:"resetOpp"},
+  {text:"Double", action:"double"},
+  {text:"Swap", action:"swap"},
+  {text:"Both +20", action:"bothGain", value:20},
+  {text:"Both -20", action:"bothLose", value:20},
+  {text:"Half", action:"half"},
+  {text:"Opp +40", action:"oppGain", value:40},
+  {text:"Opp -40", action:"oppLose", value:40},
+  {text:"Steal 15", action:"steal", value:15},
+  {text:"Gain 30", action:"gain", value:30},
+  {text:"Lose 75", action:"lose", value:75},
+  {text:"Bonus 100", action:"gain", value:100},
+  {text:"Jackpot 150", action:"gain", value:150},
+  {text:"Skip opp", action:"skip"}
+];
 
 btnPlay.addEventListener("click", startGame);
 
-function startGame() {
-  const dictKey = dictionarySelect.value;
-  if (!dictKey) {
+async function startGame(){
+  const dict = dictionarySelect.value;
+  if (!dict) {
     alert("Оберіть словник!");
     return;
   }
-  activeDict = dictionaries[dictKey];
-  score = 0;
+
+  mode = parseInt(modeSelect.value);
+  currentPlayer = 1;
+  scores = {1:0,2:0};
+  usedCount = 0;
+
+  // load JSON
+  const response = await fetch(`dictionaries/${dict}.json`);
+  const data = await response.json();
+
+  const wordTiles = shuffle([...data]).slice(0,10).map(w=>({
+    type:"question",
+    word:w.word,
+    image:w.image,
+    translation:w.translation,
+    used:false
+  }));
+
+  const effectTiles = shuffle([...EFFECTS]).slice(0,6).map(e=>({
+    type:"effect",
+    ...e,
+    used:false
+  }));
+
+  tiles = shuffle([...wordTiles, ...effectTiles]);
+  renderBoard();
   updateScore();
-
-  // pick N cards
-  const copy = [...activeDict];
-  shuffle(copy);
-
-  tiles = copy.slice(0, 10);
-  renderGrid();
 }
 
-function renderGrid() {
-  gridArea.innerHTML = "";
-  tiles.forEach((item, idx) => {
+function renderBoard(){
+  gameGrid.innerHTML = "";
+  tiles.forEach((tile,i) => {
     const card = document.createElement("div");
-    card.className = "flash-card";
-    card.dataset.index = idx;
-    card.textContent = item.word;
-    card.addEventListener("click", () => flipCard(idx));
-    gridArea.appendChild(card);
+    card.className = "game-card";
+    card.textContent = i+1;
+    card.onclick = () => openTile(i, card);
+    gameGrid.appendChild(card);
   });
 }
 
-function flipCard(idx) {
-  const card = tiles[idx];
-  showModal(card);
+function openTile(index, card){
+  const tile = tiles[index];
+  if (tile.used) return;
+
+  tile.used = true;
+  card.style.pointerEvents="none";
+
+  if (tile.type === "question") {
+    showQuestion(tile, card);
+  } else {
+    showEffect(tile, card);
+  }
 }
 
-function showModal(card) {
+function showQuestion(tile, card){
+  const wrong = shuffle([...tiles]
+    .filter(x => x.type==="question" && x.word!==tile.word))
+    .slice(0,2);
+
+  const options = shuffle([tile.word, wrong[0].word, wrong[1].word]);
+
+  modal.style.display = "flex";
   modal.innerHTML = `
-    <div class="modal-card">
-      <img src="${card.image}" alt="${card.word}">
-      <h2>${card.word}</h2>
-      <p>${card.translation}</p>
-      <button onclick="closeModal()">OK</button>
+    <div style="background:#000; padding:20px; text-align:center;">
+      <img src="${tile.image}" alt="" style="max-width:80%; margin-bottom:20px;">
+      ${options.map(o=>`<button class="optBtn">${o}</button><br>`).join("")}
+      <p style="margin-top:10px; color:white;">(${tile.translation})</p>
     </div>
   `;
-  modal.classList.remove("modal-hidden");
+
+  document.querySelectorAll(".optBtn").forEach(btn => {
+    btn.onclick = () => handleAnswer(btn, tile.word, card);
+  });
 }
 
-function closeModal() {
-  modal.classList.add("modal-hidden");
+function handleAnswer(button, correct, card){
+  const allBtns = document.querySelectorAll(".optBtn");
+  allBtns.forEach(b => b.disabled = true);
+
+  if (button.textContent === correct){
+    button.style.background="green";
+    scores[currentPlayer] += 25;
+  } else {
+    button.style.background="red";
+  }
+
+  setTimeout(() => {
+    modal.style.display="none";
+    finishTurn(card);
+  }, 800);
 }
 
-function updateScore() {
-  scoreBoard.textContent = `Score: ${score}`;
+function showEffect(tile, card){
+  const opponent = currentPlayer === 1 ? 2 : 1;
+
+  executeEffect(tile);
+
+  modal.style.display = "flex";
+  modal.innerHTML = `
+    <div style="background:#000; padding:30px; text-align:center; color:white;">
+      <h2 style="color:#e67e22;">${tile.text}</h2>
+      <button onclick="closeEffect()">OK</button>
+    </div>
+  `;
 }
 
-function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
+function closeEffect(){
+  modal.style.display="none";
+  finishTurn();
 }
 
-loadDictionaries();
+function executeEffect(tile){
+  const opp = currentPlayer === 1 ? 2 : 1;
+
+  switch(tile.action){
+    case "gain": scores[currentPlayer]+=tile.value; break;
+    case "lose": scores[currentPlayer]=Math.max(0,scores[currentPlayer]-tile.value); break;
+    case "steal":
+      const stolen = Math.min(tile.value,scores[opp]);
+      scores[opp]-=stolen; scores[currentPlayer]+=stolen; 
+      break;
+    case "resetSelf": scores[currentPlayer]=0; break;
+    case "resetOpp": scores[opp]=0; break;
+    case "double": scores[currentPlayer]*=2; break;
+    case "swap":
+      [scores[1],scores[2]]=[scores[2],scores[1]]; break;
+    case "bothGain":
+      scores[1]+=tile.value; scores[2]+=tile.value; break;
+    case "bothLose":
+      scores[1]=Math.max(0,scores[1]-tile.value);
+      scores[2]=Math.max(0,scores[2]-tile.value); break;
+    case "half": scores[currentPlayer]=Math.floor(scores[currentPlayer]/2); break;
+    case "oppGain": scores[opp]+=tile.value; break;
+    case "oppLose": scores[opp]=Math.max(0,scores[opp]-tile.value); break;
+  }
+}
+
+function finishTurn(card){
+  if(card){
+    card.style.background="black";
+    card.style.border="3px solid #e67e22";
+  }
+
+  usedCount++;
+  updateScore();
+
+  if (usedCount === tiles.length) {
+    showFinal();
+    return;
+  }
+
+  if (mode === 2){
+    currentPlayer = currentPlayer === 1 ? 2 : 1;
+  }
+}
+
+function updateScore(){
+  scoreBoard.textContent = mode === 2
+    ? `Player 1: ${scores[1]} | Player 2: ${scores[2]}`
+    : `Score: ${scores[1]}`;
+}
+
+function showFinal(){
+  modal.style.display="flex";
+  modal.innerHTML = `
+    <div style="background:#000; padding:40px; text-align:center; color:white;">
+      <h2>Game Over</h2>
+      <p>${mode===2
+         ? (scores[1]>scores[2]
+            ? "Player 1 Wins!"
+            : (scores[1]<scores[2] ? "Player 2 Wins!" : "Draw!"))
+         : "Final Score: " + scores[1]
+      }</p>
+      <button onclick="startGame()">Play Again</button>
+    </div>
+  `;
+}
+
+function shuffle(a){
+  return a.sort(()=>Math.random()-0.5);
+}

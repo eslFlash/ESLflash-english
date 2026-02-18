@@ -375,3 +375,37 @@ nav a:hover {
     color: #444;
     cursor: default;
 }
+/* ===== FLASH QUIZ GRID ===== */
+
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.game-card {
+  aspect-ratio: 1 / 1;
+  background: #e67e22;
+  border-radius: 18px;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #c96a1c;
+  transition: 0.2s;
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
+}
+
+.game-card.used {
+  background: #111;
+  border: 3px solid #e67e22;
+  box-shadow: none;
+}

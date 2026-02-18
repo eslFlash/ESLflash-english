@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Flash Quiz</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flash Quiz | ESLflash</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>Flash Quiz</h1>
 
-<div class="controls">
-  <select id="dictionarySelect"></select>
+<select id="dictionarySelect"></select>
 
-  <select id="modeSelect">
+<select id="modeSelect">
     <option value="1">1 Player</option>
     <option value="2">2 Players</option>
-  </select>
+</select>
 
-  <button id="btnPlay">Play</button>
-</div>
+<br><br>
 
-<div id="scoreBoard" class="score-board"></div>
+<button id="btnPlay">Play</button>
 
-<div id="gameBoard" class="game-board"></div>
+<div id="scoreBoard" style="margin-top:20px;"></div>
 
-<div id="modal" class="modal"></div>
+<div id="gameBoard" style="margin-top:30px;"></div>
+
+<div id="modal"></div>
+
+<br>
+<a href="games.html">← Назад</a>
 
 <script src="flash-quiz.js"></script>
 </body>

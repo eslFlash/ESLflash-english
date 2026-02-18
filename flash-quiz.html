@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flash Quiz | ESLflash</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Flash Quiz</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>Flash Quiz</h1>
 
-<select id="dictionarySelect">
-    <option value="">Оберіть словник</option>
-    <option value="basic">Basic</option>
-    <option value="food">Food</option>
-    <option value="verbs">Verbs</option>
-</select>
+<div class="controls">
+  <select id="dictionarySelect"></select>
 
-<select id="modeSelect">
-    <option value="1">1 Гравець</option>
-    <option value="2">2 Гравці</option>
-</select>
+  <select id="modeSelect">
+    <option value="1">1 Player</option>
+    <option value="2">2 Players</option>
+  </select>
 
-<br><br>
+  <button id="btnPlay">Play</button>
+</div>
 
-<button id="btnPlay">Play</button>
-
-<div id="scoreBoard" style="margin-top:20px;"></div>
+<div id="scoreBoard" class="score-board"></div>
 
 <div id="gameBoard" class="game-board"></div>
 
-<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
-    justify-content:center; align-items:center; background:rgba(0,0,0,0.7);"></div>
-
-<br>
-<a href="games.html">← Назад</a>
+<div id="modal" class="modal"></div>
 
 <script src="flash-quiz.js"></script>
 </body>

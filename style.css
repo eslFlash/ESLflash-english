@@ -255,46 +255,6 @@ nav a:hover {
   font-weight: bold;
   border-radius: 6px;
 }
-/* ===== FLASH QUIZ GRID ===== */
-
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 0 10px;
-}
-
-.tile {
-  background: #e67e22;
-  color: #000;
-  font-size: 22px;
-  font-weight: bold;
-  padding: 25px 0;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 14px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 6px 0 #c96a1c;
-}
-
-.tile:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 0 #c96a1c;
-}
-
-.tile:active {
-  transform: translateY(2px);
-  box-shadow: 0 3px 0 #c96a1c;
-}
-
-.tile.used {
-  background: #111;
-  color: #444;
-  box-shadow: none;
-  cursor: default;
-}
 
 @media (max-width: 600px) {
   .games-grid {
@@ -305,20 +265,7 @@ nav a:hover {
     font-size: 18px;
     padding: 18px 0;
   }
-
-    .games-container {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 18px;
-    max-width: 900px;
-    margin: 0 auto;
-}
+    
 /* ===== MENU GAMES LIST ===== */
 
 .games-container {
@@ -339,73 +286,38 @@ nav a:hover {
 .game-card button {
     width: 100%;
         }
-/* ===== FLASH QUIZ BOARD ===== */
+/* ===== FLASH QUIZ ONLY ===== */
 
-.game-board {
+#gameBoard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    gap: 12px;
     width: 95%;
-    max-width: 720px;
+    max-width: 650px;
     margin: 30px auto;
 }
 
-.game-board .tile {
+#gameBoard .game-card {
     aspect-ratio: 1 / 1;
-    background: #222;
+    background: #e67e22;
     color: white;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
-    border: 3px solid #e67e22;
-    border-radius: 14px;
+    border-radius: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 6px 0 #c96a1c;
     cursor: pointer;
     transition: 0.2s;
 }
 
-.game-board .tile:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 0 #c96a1c;
+#gameBoard .game-card:hover {
+    transform: translateY(-3px);
 }
 
-.game-board .tile.used {
+#gameBoard .game-card.used {
     background: #111;
     color: #444;
-    cursor: default;
-}
-/* ===== FLASH QUIZ GRID ===== */
-
-#gameBoard {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  width: 90%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.game-card {
-  aspect-ratio: 1 / 1;
-  background: #e67e22;
-  border-radius: 18px;
-  font-size: 28px;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 0 6px 0 #c96a1c;
-  transition: 0.2s;
-}
-
-.game-card:hover {
-  transform: translateY(-3px);
-}
-
-.game-card.used {
-  background: #111;
-  border: 3px solid #e67e22;
-  box-shadow: none;
+    box-shadow: none;
 }

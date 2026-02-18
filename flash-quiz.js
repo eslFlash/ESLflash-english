@@ -160,7 +160,7 @@ function executeEffect(tile){
 
   switch(tile.action){
     case "gain": scores[currentPlayer]+=tile.value; break;
-    case "lose": scores[currentPlayer]=Math.max(0,scores[currentPlayer]-tile.value); break;
+    case "lose": scores[currentPlayer] -= tile.value; break;
     case "steal":
       const stolen = Math.min(tile.value,scores[opp]);
       scores[opp]-=stolen; scores[currentPlayer]+=stolen; 
@@ -173,11 +173,12 @@ function executeEffect(tile){
     case "bothGain":
       scores[1]+=tile.value; scores[2]+=tile.value; break;
     case "bothLose":
-      scores[1]=Math.max(0,scores[1]-tile.value);
-      scores[2]=Math.max(0,scores[2]-tile.value); break;
+  scores[1] -= tile.value;
+  scores[2] -= tile.value;
+  break;
     case "half": scores[currentPlayer]=Math.floor(scores[currentPlayer]/2); break;
     case "oppGain": scores[opp]+=tile.value; break;
-    case "oppLose": scores[opp]=Math.max(0,scores[opp]-tile.value); break;
+    case "oppLose": scores[opp] -= tile.value; break;
   }
 }
 

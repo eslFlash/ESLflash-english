@@ -101,7 +101,8 @@ function openTile(index,card){
   if(tile.used) return;
 
   tile.used=true;
-  card.style.pointerEvents="none";
+  card.classList.add("used");
+card.style.pointerEvents="none";
 
   if(tile.type==="question"){
     showQuestion(tile,card);

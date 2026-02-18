@@ -1,7 +1,7 @@
 const dictionarySelect = document.getElementById("dictionarySelect");
 const modeSelect = document.getElementById("modeSelect");
 const btnPlay = document.getElementById("btnPlay");
-const gameGrid = document.getElementById("gameGrid");
+const gameBoard = document.getElementById("gameBoard");
 const scoreBoard = document.getElementById("scoreBoard");
 const modal = document.getElementById("modal");
 

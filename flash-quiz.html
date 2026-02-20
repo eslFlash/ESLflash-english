@@ -6,46 +6,39 @@
 <title>Flash Quiz | ESLflash</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="quiz-page">
 
-<h1>Flash Quiz</h1>
+<div class="quiz-wrapper">
 
-<select id="dictionarySelect"></select>
+    <!-- TOP SECTION -->
+    <div class="quiz-top">
 
-<select id="modeSelect">
-    <option value="1">1 Player</option>
-    <option value="2">2 Players</option>
-</select>
+        <h1 class="quiz-title">Flash Quiz</h1>
 
-<br><br>
+        <div class="quiz-controls">
+            <select id="dictionarySelect"></select>
 
-<button id="btnPlay">Play</button>
+            <select id="modeSelect">
+                <option value="1">1 Player</option>
+                <option value="2">2 Players</option>
+            </select>
 
-<div id="scoreBoard" style="margin-top:20px;"></div>
-<div class="quiz-top">
+            <button id="btnPlay" class="btn-primary">Play</button>
+        </div>
 
-<h1>Flash Quiz</h1>
+        <div id="scoreBoard" class="score-board"></div>
 
-<select id="dictionarySelect"></select>
+    </div>
 
-<select id="modeSelect">
-    <option value="1">1 Player</option>
-    <option value="2">2 Players</option>
-</select>
-
-<br><br>
-
-<button id="btnPlay">Play</button>
-
-<div id="scoreBoard" style="margin-top:20px;"></div>
+    <!-- GAME GRID -->
+    <div id="gameBoard" class="quiz-grid"></div>
 
 </div>
-<div id="gameBoard"></div>
 
-<div id="modal"></div>
+<!-- MODAL -->
+<div id="modal" class="quiz-modal"></div>
 
-<br>
-<a href="games.html">← Назад</a>
+<a href="games.html" class="back-link">← Назад</a>
 
 <script src="flash-quiz.js"></script>
 </body>

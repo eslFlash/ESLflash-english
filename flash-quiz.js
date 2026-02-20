@@ -86,12 +86,15 @@ async function startGame(){
 }
 
 function renderBoard(){
-  gameBoard.innerHTML="";
-  tiles.forEach((tile,i)=>{
+  gameBoard.innerHTML = "";
+
+  tiles.forEach((tile,i) => {
     const card = document.createElement("div");
-    card.className="game-card";
-    card.textContent=i+1;
-    card.onclick=()=>openTile(i,card);
+    card.className = "game-card";
+    card.textContent = i+1;
+
+    card.onclick = () => openTile(i, card);
+
     gameBoard.appendChild(card);
   });
 }
@@ -197,6 +200,24 @@ function updateScore(){
     ${mode===2?` | Player 2: ${scores[2]}`:""}
   `;
 }
+function finishTurn(card){
+
+  if(card){
+    card.classList.add("used");
+  }
+
+  usedCount++;
+  updateScore();
+
+  if (usedCount === tiles.length) {
+    showFinal();
+    return;
+  }
+
+  if(mode === 2){
+    currentPlayer = currentPlayer === 1 ? 2 : 1;
+  }
+}
 
 function speak(text){
   if(!window.speechSynthesis) return;
@@ -214,3 +235,25 @@ function speak(text){
 function shuffle(arr){
   return arr.sort(()=>Math.random()-0.5);
           }
+function showFinal(){
+
+  let message = "";
+
+  if(scores[1] > scores[2]){
+    message = "🔥 Player 1 dominates!";
+  } else if(scores[2] > scores[1]){
+    message = "🔥 Player 2 takes the crown!";
+  } else {
+    message = "⚖️ Draw! Real battle!";
+  }
+
+  modal.style.display = "flex";
+  modal.innerHTML = `
+    <div class="quiz-modal">
+      <h2 style="color:#e67e22;">Game Over</h2>
+      <p style="font-size:20px; margin:15px 0;">${message}</p>
+      <p>Player 1: ${scores[1]} | Player 2: ${scores[2]}</p>
+      <button onclick="location.reload()">Play Again</button>
+    </div>
+  `;
+}

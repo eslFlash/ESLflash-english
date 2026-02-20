@@ -287,28 +287,36 @@ nav a:hover {
     width: 100%;
         }
 /* ===== FLASH QUIZ ONLY ===== */
+/* ============================= */
+/* ===== FLASH QUIZ MOBILE ===== */
+/* ============================= */
 
 #gameBoard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 6px;
+
     width: 95%;
-    max-width: 650px;
-    margin: 30px auto;
+    max-width: 420px;
+
+    margin: 15px auto 40px auto;
 }
 
+/* картки в стилі меню */
 #gameBoard .game-card {
     aspect-ratio: 1 / 1;
     background: #e67e22;
-    color: white;
-    font-size: 26px;
-    font-weight: bold;
-    border-radius: 18px;
+    border-radius: 22px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    font-size: 6vw;           /* великі цифри */
+    font-weight: bold;
+    color: white;
+
     box-shadow: 0 6px 0 #c96a1c;
-    cursor: pointer;
     transition: 0.2s;
 }
 
@@ -318,6 +326,25 @@ nav a:hover {
 
 #gameBoard .game-card.used {
     background: #111;
-    color: #444;
+    border: 3px solid #e67e22;
     box-shadow: none;
+    color: #444;
 }
+
+/* щоб сітка займала нижню половину екрану */
+@media (max-width: 600px) {
+
+    #gameBoard {
+        max-width: 95%;
+        gap: 4px;
+    }
+
+    #gameBoard .game-card {
+        font-size: 9vw;   /* майже 50% площі */
+    }
+
+    #scoreBoard {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+        }

@@ -4,6 +4,7 @@ const btnPlay = document.getElementById("btnPlay");
 const gameBoard = document.getElementById("gameBoard");
 const scoreBoard = document.getElementById("scoreBoard");
 const modal = document.getElementById("modal");
+const modalBody = document.getElementById("modalBody");
 
 let tiles = [];
 let mode = 1;
@@ -23,13 +24,14 @@ const EFFECTS = [
   {text:"Both -20", action:"bothLose", value:20},
   {text:"Half", action:"half"},
   {text:"Opp +40", action:"oppGain", value:40},
-  {text:"Opp -40", action:"oppLose", value:40},
-  {text:"Skip opp", action:"skip"}
+  {text:"Opp -40", action:"oppLose", value:40}
 ];
 
 btnPlay.addEventListener("click", startGame);
 
-async function populateDictionarySelect(){
+populateDictionarySelect();
+
+function populateDictionarySelect(){
   const list = [
     {name:"Verbs", file:"verbs.json"},
     {name:"Basic", file:"basic.json"},
@@ -45,8 +47,6 @@ async function populateDictionarySelect(){
     dictionarySelect.appendChild(opt);
   });
 }
-
-populateDictionarySelect();
 
 async function startGame(){
   const dict = dictionarySelect.value;
@@ -103,19 +103,19 @@ function openTile(index,card){
   const tile = tiles[index];
   if(tile.used) return;
 
-  tile.used=true;
+  tile.used = true;
   card.classList.add("used");
-card.style.pointerEvents="none";
+  card.style.pointerEvents="none";
 
   if(tile.type==="question"){
-    showQuestion(tile,card);
+    showQuestion(tile);
   } else {
     executeEffect(tile);
     showEffect(tile);
   }
 }
 
-function showQuestion(tile,card){
+function showQuestion(tile){
   const wrong = shuffle(
     tiles.filter(x=>x.type==="question" && x.word!==tile.word)
   ).slice(0,2);
@@ -123,14 +123,12 @@ function showQuestion(tile,card){
   const options = shuffle([tile.word, wrong[0].word, wrong[1].word]);
 
   modal.style.display="flex";
-  modal.innerHTML=`
-    <div class="quiz-modal">
+  modalBody.innerHTML=`
       <img src="${tile.image}" class="quiz-image">
       <button id="speakBtn">🔊</button>
       <div class="quiz-buttons">
         ${options.map(o=>`<button class="optBtn">${o}</button>`).join("")}
       </div>
-    </div>
   `;
 
   document.getElementById("speakBtn").onclick=()=>speak(tile.word);
@@ -142,7 +140,7 @@ function showQuestion(tile,card){
       } else {
         scores[currentPlayer]-=25;
       }
-      closeModal(card);
+      endTurn();
     };
   });
 }
@@ -171,52 +169,34 @@ function executeEffect(tile){
 
 function showEffect(tile){
   modal.style.display="flex";
-  modal.innerHTML=`
-    <div class="quiz-modal">
+  modalBody.innerHTML=`
       <h2>${tile.text}</h2>
-      <button onclick="closeModal()">OK</button>
-    </div>
+      <button id="okBtn">OK</button>
   `;
-  updateScore();
+
+  document.getElementById("okBtn").onclick = endTurn;
 }
 
-function closeModal(card){
+function endTurn(){
   modal.style.display="none";
   usedCount++;
   updateScore();
 
-  if(mode===2){
-    currentPlayer = currentPlayer===1?2:1;
+  if(usedCount===tiles.length){
+    showFinal();
+    return;
   }
 
-  if(usedCount===tiles.length){
-    alert("Game over!");
+  if(mode===2){
+    currentPlayer = currentPlayer===1?2:1;
   }
 }
 
 function updateScore(){
   scoreBoard.innerHTML = `
-    Player 1: ${scores[1]} 
+    Player 1: ${scores[1]}
     ${mode===2?` | Player 2: ${scores[2]}`:""}
   `;
-}
-function finishTurn(card){
-
-  if(card){
-    card.classList.add("used");
-  }
-
-  usedCount++;
-  updateScore();
-
-  if (usedCount === tiles.length) {
-    showFinal();
-    return;
-  }
-
-  if(mode === 2){
-    currentPlayer = currentPlayer === 1 ? 2 : 1;
-  }
 }
 
 function speak(text){
@@ -224,19 +204,15 @@ function speak(text){
 
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang="en-US";
-
-  const voices = speechSynthesis.getVoices();
-  const male = voices.find(v=>v.name.toLowerCase().includes("male"));
-  if(male) utter.voice=male;
-
+  speechSynthesis.cancel();
   speechSynthesis.speak(utter);
 }
 
 function shuffle(arr){
   return arr.sort(()=>Math.random()-0.5);
-          }
-function showFinal(){
+}
 
+function showFinal(){
   let message = "";
 
   if(scores[1] > scores[2]){
@@ -248,12 +224,10 @@ function showFinal(){
   }
 
   modal.style.display = "flex";
-  modal.innerHTML = `
-    <div class="quiz-modal">
+  modalBody.innerHTML = `
       <h2 style="color:#e67e22;">Game Over</h2>
       <p style="font-size:20px; margin:15px 0;">${message}</p>
       <p>Player 1: ${scores[1]} | Player 2: ${scores[2]}</p>
       <button onclick="location.reload()">Play Again</button>
-    </div>
   `;
 }

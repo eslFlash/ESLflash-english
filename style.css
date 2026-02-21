@@ -275,3 +275,19 @@ a:visited {
 .quiz-modal {
     margin: auto;
 }
+/* ============================= */
+/* ===== MAIN LOGO FIX ========= */
+/* ============================= */
+
+.main-logo {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-logo img {
+    width: 90%;
+    max-width: 380px;   /* контроль розміру */
+    height: auto;
+    display: block;
+}

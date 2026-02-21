@@ -1,1 +1,96 @@
+/* ============================= */
+/* ===== FLASH QUIZ ONLY ======= */
+/* ============================= */
 
+.quiz-top {
+    padding: 10px 15px 15px 15px;
+}
+
+#scoreBoard {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 4x4 GRID */
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    width: 95%;
+    max-width: 420px;
+    margin: 20px auto 40px auto;
+}
+
+#gameBoard .game-card {
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(145deg,#f38b2a,#e67e22);
+    border-radius: 22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 32px;
+    font-weight: 800;
+    color:white;
+    box-shadow: 0 6px 0 #b5530c;
+    cursor:pointer;
+    transition:0.15s ease;
+}
+
+#gameBoard .game-card:active {
+    transform: scale(0.95);
+}
+
+#gameBoard .game-card.used {
+    background:#111;
+    box-shadow:none;
+    color:#444;
+    border:2px solid #e67e22;
+}
+
+/* MODAL */
+
+#modal {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+    padding:20px;
+}
+
+.quiz-modal {
+    background:#000;
+    border:3px solid #e67e22;
+    border-radius:18px;
+    width:95%;
+    max-width:480px;
+    padding:20px;
+    text-align:center;
+}
+
+.quiz-modal img {
+    width:100%;
+    max-height:45vh;
+    object-fit:contain;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+.quiz-options {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.optBtn {
+    background:#e67e22;
+    padding:14px;
+    font-size:18px;
+    font-weight:bold;
+    border:none;
+    border-radius:10px;
+    color:black;
+}

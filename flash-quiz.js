@@ -116,15 +116,20 @@ function openTile(index,card){
 }
 
 function showQuestion(tile){
+
   const wrong = shuffle(
     tiles.filter(x=>x.type==="question" && x.word!==tile.word)
   ).slice(0,2);
 
   const options = shuffle([tile.word, wrong[0].word, wrong[1].word]);
 
+  const dictName = dictionarySelect.value.replace(".json","");
+
   modal.style.display="flex";
-  modalBody.innerHTML=`
-      <img src="images/${dictionarySelect.value.replace('.json','')}/${tile.word}.jpg" class="quiz-image">
+  modalBody.innerHTML = `
+      <img src="images/${dictName}/${tile.word}.jpg"
+           onerror="this.src='images/${dictName}/${tile.word}.png'"
+           class="quiz-image">
       <button id="speakBtn">🔊</button>
       <div class="quiz-buttons">
         ${options.map(o=>`<button class="optBtn">${o}</button>`).join("")}

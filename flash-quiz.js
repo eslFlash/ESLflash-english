@@ -124,7 +124,7 @@ function showQuestion(tile){
 
   modal.style.display="flex";
   modalBody.innerHTML=`
-      <img src="${tile.image}" class="quiz-image">
+      <img src="images/${dictionarySelect.value.replace('.json','')}/${tile.word}.jpg" class="quiz-image">
       <button id="speakBtn">🔊</button>
       <div class="quiz-buttons">
         ${options.map(o=>`<button class="optBtn">${o}</button>`).join("")}

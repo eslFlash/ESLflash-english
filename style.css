@@ -261,17 +261,6 @@ a:visited {
 /* ===== MODAL FIX ============= */
 /* ============================= */
 
-#modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    z-index: 2000;
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto;
-}
-
 .quiz-modal {
     margin: auto;
 }

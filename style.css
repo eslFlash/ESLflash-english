@@ -186,3 +186,92 @@ button:hover {
         font-size: 16px;
     }
 }
+/* ============================= */
+/* ===== FIX MAIN MENU ========= */
+/* ============================= */
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin: 40px auto;
+}
+
+nav a {
+    display: block;
+    width: 80%;
+    max-width: 420px;
+    padding: 16px 0;
+    background: #e67e22;
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 6px 0 #c96a1c, 0 0 15px rgba(230,126,34,0.5);
+    transition: 0.2s;
+}
+
+nav a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 #c96a1c, 0 0 20px rgba(230,126,34,0.8);
+}
+
+/* ============================= */
+/* ===== LINKS COLOR FIX ======= */
+/* ============================= */
+
+a {
+    color: #e67e22;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #e67e22;
+}
+
+/* ============================= */
+/* ===== GAMES MENU TILES ====== */
+/* ============================= */
+
+.games-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.games-container .game-card {
+    background: #222;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 0 15px rgba(230,126,34,0.5);
+    transition: 0.2s;
+}
+
+.games-container .game-card:hover {
+    box-shadow: 0 0 25px rgba(230,126,34,0.9);
+    transform: translateY(-3px);
+}
+
+/* ============================= */
+/* ===== MODAL FIX ============= */
+/* ============================= */
+
+#modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.quiz-modal {
+    margin: auto;
+}

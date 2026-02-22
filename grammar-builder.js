@@ -51,6 +51,7 @@ async function loadTopic(topicId) {
 }
 
 function startGame() {
+  filledWords = [];
   if (sentences.length === 0) {
     gameArea.innerHTML = `<h2>Excellent work! 🔥 Score: ${score}/10</h2>
     <button onclick="renderMenu()">Back to topics</button>`;
@@ -172,7 +173,7 @@ function checkProgress() {
       }
 function isCorrectSoFar() {
   for (let i = 0; i < filledWords.length; i++) {
-    if (filledWords[i] !== currentSentence.words[i]) {
+    if (filledWords[i].word !== currentSentence.words[i]) {
       return false;
     }
   }
@@ -180,7 +181,9 @@ function isCorrectSoFar() {
 }
 
 function isFullyCorrect() {
-  return filledWords.join(" ") === currentSentence.words.join(" ");
+  const userSentence = filledWords.map(item => item.word).join(" ");
+  const correctSentence = currentSentence.words.join(" ");
+  return userSentence === correctSentence;
 }
 
 function resetSentence() {

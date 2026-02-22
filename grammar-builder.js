@@ -122,6 +122,7 @@ function updateSlots() {
   slotElements.forEach((slot, i) => {
 
     slot.innerHTML = "";
+    slot.style.background = "transparent";
 
     if (filledWords[i]) {
 
@@ -129,7 +130,13 @@ function updateSlots() {
       span.textContent = filledWords[i].word;
       span.style.cursor = "pointer";
 
-      // клік по слову в слоті
+      // 🔹 ПІДСВІТКА
+      if (filledWords[i].word === currentSentence.words[i]) {
+        slot.style.background = "#d4edda"; // зелений
+      } else {
+        slot.style.background = "#f8d7da"; // червоний
+      }
+
       span.onclick = () => {
         returnWord(i);
       };
@@ -151,15 +158,6 @@ function returnWord(index) {
 }
 
 function checkProgress() {
-
-  if (!isCorrectSoFar()) {
-    mistakeCount++;
-
-    if (mistakeCount >= 2) {
-      resetSentence();
-      return;
-    }
-  }
 
   if (filledWords.length === currentSentence.words.length) {
 

@@ -127,8 +127,10 @@ function updateSlots() {
     if (filledWords[i]) {
 
       const span = document.createElement("span");
-      span.textContent = filledWords[i].word;
-      span.style.cursor = "pointer";
+span.textContent = filledWords[i].word;
+span.style.cursor = "pointer";
+span.style.color = "#000";
+span.style.fontWeight = "600";
 
       // 🔹 ПІДСВІТКА
       if (filledWords[i].word === currentSentence.words[i]) {

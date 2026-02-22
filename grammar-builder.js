@@ -46,6 +46,7 @@ async function loadTopic(topicId) {
 
   menu.innerHTML = "";
   startGame();
+  filledWords = [];
 }
 
 function startGame() {
@@ -96,20 +97,70 @@ function renderSentence() {
 let filledWords = [];
 
 function handleWordClick(word, button) {
+
   speak(word);
 
-  filledWords.push(word);
+  // ховаємо кнопку
+  button.style.visibility = "hidden";
+  button.disabled = true;
+
+  filledWords.push({
+    word: word,
+    button: button
+  });
+
   updateSlots();
+  checkProgress();
+}
+
+function updateSlots() {
+
+  const slotElements = document.querySelectorAll(".slot");
+
+  slotElements.forEach((slot, i) => {
+
+    slot.innerHTML = "";
+
+    if (filledWords[i]) {
+
+      const span = document.createElement("span");
+      span.textContent = filledWords[i].word;
+      span.style.cursor = "pointer";
+
+      // клік по слову в слоті
+      span.onclick = () => {
+        returnWord(i);
+      };
+
+      slot.appendChild(span);
+    }
+  });
+}
+
+function returnWord(index) {
+
+  const removed = filledWords.splice(index, 1)[0];
+
+  // повертаємо кнопку
+  removed.button.style.visibility = "visible";
+  removed.button.disabled = false;
+
+  updateSlots();
+}
+
+function checkProgress() {
 
   if (!isCorrectSoFar()) {
     mistakeCount++;
 
     if (mistakeCount >= 2) {
       resetSentence();
+      return;
     }
   }
 
   if (filledWords.length === currentSentence.words.length) {
+
     if (isFullyCorrect()) {
       score++;
       setTimeout(startGame, 700);
@@ -117,15 +168,7 @@ function handleWordClick(word, button) {
       resetSentence();
     }
   }
-}
-
-function updateSlots() {
-  const slotElements = document.querySelectorAll(".slot");
-  slotElements.forEach((slot, i) => {
-    slot.textContent = filledWords[i] || "";
-  });
-}
-
+      }
 function isCorrectSoFar() {
   for (let i = 0; i < filledWords.length; i++) {
     if (filledWords[i] !== currentSentence.words[i]) {
@@ -140,6 +183,13 @@ function isFullyCorrect() {
 }
 
 function resetSentence() {
+
+  // повертаємо всі слова назад
+  filledWords.forEach(item => {
+    item.button.style.visibility = "visible";
+    item.button.disabled = false;
+  });
+
   filledWords = [];
   mistakeCount = 0;
   resetCount++;

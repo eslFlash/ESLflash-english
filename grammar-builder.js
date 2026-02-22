@@ -122,7 +122,9 @@ function updateSlots() {
   slotElements.forEach((slot, i) => {
 
     slot.innerHTML = "";
-    slot.style.background = "transparent";
+slot.style.background = "transparent";
+slot.style.color = "#000";
+slot.style.opacity = "1";
 
     if (filledWords[i]) {
 

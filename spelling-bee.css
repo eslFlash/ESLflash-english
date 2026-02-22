@@ -1,1 +1,41 @@
+/* ============================= */
+/* ===== SPELLING BEE ONLY ===== */
+/* ============================= */
 
+.spelling-page h1 {
+    margin-top: 30px;
+}
+
+.spelling-page select {
+    margin-top: 20px;
+}
+
+.spelling-page button {
+    margin-top: 20px;
+}
+
+.spelling-page .spelling-game {
+    margin-top: 40px;
+}
+
+/* IMAGE */
+
+.spelling-page .spelling-game img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+/* SLOTS */
+
+.spelling-page #slots {
+    margin: 20px 0;
+    font-size: 32px;
+    letter-spacing: 10px;
+}
+
+/* LETTER BUTTONS */
+
+.spelling-page #letters button {
+    margin: 5px;
+}

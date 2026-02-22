@@ -1,1 +1,45 @@
+/* ============================= */
+/* ===== WORD MATCH ONLY ======= */
+/* ============================= */
 
+.word-match-page h1 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* SELECT */
+
+.word-match-page select {
+    margin-bottom: 25px;
+}
+
+/* GAME AREA */
+
+.word-match-page .review-container {
+    margin-top: 20px;
+}
+
+/* PROGRESS */
+
+.word-match-page #progress {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* WORD BOX */
+
+.word-match-page #wordBox {
+    margin-bottom: 25px;
+}
+
+/* ANSWERS GRID */
+
+.word-match-page .games-container {
+    margin-top: 15px;
+}
+
+/* NAV BUTTONS */
+
+.word-match-page .nav-buttons {
+    margin-top: 40px;
+}

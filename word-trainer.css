@@ -1,1 +1,57 @@
+/* ============================= */
+/* ===== WORD TRAINER ONLY ===== */
+/* ============================= */
 
+.trainer-page .trainer-container {
+    margin-top: 40px;
+}
+
+/* TITLE */
+
+.trainer-page h1 {
+    margin-bottom: 20px;
+}
+
+/* SELECT */
+
+.trainer-page select {
+    margin-bottom: 25px;
+}
+
+/* WORD BOX */
+
+.trainer-page .word-box {
+    margin: 30px 0;
+}
+
+/* INPUT */
+
+.trainer-page #answer {
+    margin-top: 10px;
+}
+
+/* BUTTON */
+
+.trainer-page button {
+    margin-top: 15px;
+}
+
+/* RESULT TEXT */
+
+.trainer-page #result {
+    margin-top: 15px;
+}
+
+/* SCORE */
+
+.trainer-page #score {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* BACK BUTTON */
+
+.trainer-page .back-btn {
+    display: inline-block;
+    margin-top: 30px;
+}

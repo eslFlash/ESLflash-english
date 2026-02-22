@@ -132,9 +132,11 @@ function updateSlots() {
 
       // 🔹 ПІДСВІТКА
       if (filledWords[i].word === currentSentence.words[i]) {
-        slot.style.background = "#d4edda"; // зелений
-      } else {
-        slot.style.background = "#f8d7da"; // червоний
+  slot.style.background = "#d4edda"; // ніжний зелений
+  slot.style.borderBottom = "3px solid #28a745";
+} else {
+  slot.style.background = "#f8d7da"; // ніжний червоний
+  slot.style.borderBottom = "3px solid #dc3545";
       }
 
       span.onclick = () => {

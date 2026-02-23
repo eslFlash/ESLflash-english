@@ -74,13 +74,18 @@
 <h2 class="tile-title">⚡ Share Your Idea</h2>
   <p class="ua-title">Запропонуйте ідею покращення</p>
 
-  <form class="idea-form">
-    <input type="text" placeholder="Your name (optional)">
-    <textarea placeholder="Your suggestion or improvement idea"></textarea>
-    <button type="submit">Submit Idea</button>
-  </form>
+  <form class="idea-form" id="ideaForm">
+  <input type="text" id="ideaName" placeholder="Your name (optional)">
+  <textarea id="ideaText" placeholder="Your suggestion or improvement idea" required></textarea>
+  <button type="submit">Submit Idea</button>
+</form>
 
-  <p class="ua">Найкращі ідеї будуть реалізовані з вказанням автора.</p>
+<p class="ua">Найкращі ідеї будуть реалізовані з вказанням автора.</p>
+
+<div class="ideas-display" id="ideasDisplay">
+  <h3>💡 Submitted Ideas</h3>
+  <p class="ua">💡 Надіслані ідеї</p>
+</div>
 </section>
 
 <!-- LEVELS -->

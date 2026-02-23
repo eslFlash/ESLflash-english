@@ -125,3 +125,19 @@
   margin-bottom: 15px;
   border-left: 4px solid #e67e22;
 }
+
+.donate-action {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.support-note {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.donate-btn-block {
+  display: block;
+  width: fit-content;
+  margin: 12px auto;
+  }

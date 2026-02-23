@@ -1,0 +1,14 @@
+/* Wrapper */
+.paths-wrapper {
+    max-width: 700px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Кожна плитка окремо ізольована */
+.path-speaking {}
+.path-grammar {}
+.path-tests {}
+.path-course {}

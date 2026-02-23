@@ -141,5 +141,46 @@
 
 <a href="index.html" class="back-link">← Back</a>
 
+  <script>
+const form = document.getElementById("ideaForm");
+const ideasDisplay = document.getElementById("ideasDisplay");
+
+function loadIdeas() {
+  const ideas = JSON.parse(localStorage.getItem("eslIdeas")) || [];
+  ideasDisplay.innerHTML = `
+    <h3>💡 Submitted Ideas</h3>
+    <p class="ua">💡 Надіслані ідеї</p>
+  `;
+  ideas.forEach(idea => {
+    const div = document.createElement("div");
+    div.classList.add("idea-item");
+    div.innerHTML = `
+      <strong>${idea.name || "Anonymous"}</strong>
+      <p>${idea.text}</p>
+      <hr>
+    `;
+    ideasDisplay.appendChild(div);
+  });
+}
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("ideaName").value.trim();
+  const text = document.getElementById("ideaText").value.trim();
+
+  if (!text) return;
+
+  const ideas = JSON.parse(localStorage.getItem("eslIdeas")) || [];
+  ideas.push({ name, text });
+
+  localStorage.setItem("eslIdeas", JSON.stringify(ideas));
+
+  form.reset();
+  loadIdeas();
+});
+
+loadIdeas();
+  </script>
 </body>
 </html>

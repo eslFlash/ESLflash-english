@@ -7,6 +7,12 @@
     gap: 25px;
 }
 
+/* Hover як у меню ігор */
+.game-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(255,140,0,0.6);
+    transition: 0.3s ease;
+}
 /* Кожна плитка окремо ізольована */
 .path-speaking {}
 .path-grammar {}

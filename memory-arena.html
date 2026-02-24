@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ ESLflash Memory Arena</title>
+<link rel="stylesheet" href="memory-arena.css">
+</head>
+<body>
 
+<div class="arena-wrapper">
+
+    <h1 class="arena-title">⚡ ESLflash Memory Arena</h1>
+
+    <div class="arena-controls">
+        <select id="dictionarySelect"></select>
+
+        <select id="playersSelect">
+            <option value="1">1 Player</option>
+            <option value="2" selected>2 Players</option>
+        </select>
+
+        <button id="startGameBtn">PLAY</button>
+    </div>
+
+    <div class="scoreboard">
+        <div id="player1" class="score active">Player 1: <span>0</span></div>
+        <div id="player2" class="score">Player 2: <span>0</span></div>
+    </div>
+
+    <div id="gameBoard" class="board"></div>
+
+</div>
+
+<script src="memory-arena.js"></script>
+</body>
+</html>

@@ -1,36 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>⚡ ESLflash Memory Arena</title>
+
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="memory-arena.css">
 </head>
-<body>
 
-<div class="arena-wrapper">
+<body class="quiz-page">
 
-    <h1 class="arena-title">⚡ ESLflash Memory Arena</h1>
+<h1 class="arena-title">⚡ ESLflash Memory Arena</h1>
 
-    <div class="arena-controls">
-        <select id="dictionarySelect"></select>
+<div class="arena-controls">
 
-        <select id="playersSelect">
-            <option value="1">1 Player</option>
-            <option value="2" selected>2 Players</option>
-        </select>
+    <select id="dictionarySelect">
+        <option value="basic">Basic</option>
+        <option value="food">Food</option>
+        <option value="verbs">Verbs</option>
+    </select>
 
-        <button id="startGameBtn">PLAY</button>
-    </div>
+    <select id="playersSelect">
+        <option value="1">1 Player</option>
+        <option value="2" selected>2 Players</option>
+    </select>
 
-    <div class="scoreboard">
-        <div id="player1" class="score active">Player 1: <span>0</span></div>
-        <div id="player2" class="score">Player 2: <span>0</span></div>
-    </div>
-
-    <div id="gameBoard" class="board"></div>
+    <button id="startGameBtn" class="btn-primary">Play</button>
 
 </div>
+
+<div class="scoreboard">
+    <div id="player1" class="score active">
+        Player 1: <span>0</span>
+    </div>
+    <div id="player2" class="score">
+        Player 2: <span>0</span>
+    </div>
+</div>
+
+<div id="gameBoard" class="memory-board"></div>
+
+<a href="games.html" class="back-link">← Назад</a>
 
 <script src="memory-arena.js"></script>
 </body>

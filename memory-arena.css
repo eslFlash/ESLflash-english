@@ -125,7 +125,4 @@
 .memory-card.matched {
     visibility: hidden;
 }
-body {
-    margin: 0;
-    overflow: hidden;
-    }
+

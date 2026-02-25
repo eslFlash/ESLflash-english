@@ -1,133 +1,117 @@
-:root {
-    --bg: #000000;
-    --accent: #ff6a00;
-    --white: #ffffff;
-    --dark-card: #111111;
-    --border: #222222;
-}
-
-body {
-    margin: 0;
-    background: var(--bg);
-    font-family: 'Arial Black', sans-serif;
-    color: var(--white);
-    text-align: center;
-}
-
 /* TITLE */
 
 .arena-title {
-    font-size: 34px;
-    margin: 30px 0 10px;
-    letter-spacing: 1px;
-    font-weight: 900;
+    margin-top: 30px;
 }
 
 /* CONTROLS */
 
 .arena-controls {
-    margin: 20px 0 30px;
+    margin: 20px 0;
 }
 
-.esl-select {
-    background: var(--dark-card);
-    color: var(--white);
-    border: 2px solid var(--accent);
-    padding: 10px 16px;
-    margin: 5px;
-    font-weight: bold;
-    border-radius: 10px;
-}
-
-.esl-button {
-    background: var(--accent);
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    font-weight: 900;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.esl-button:hover {
-    transform: scale(1.05);
-}
-
-/* SCORE */
+/* SCOREBOARD */
 
 .scoreboard {
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .score {
-    padding: 8px 16px;
-    border: 2px solid var(--accent);
-    border-radius: 12px;
+    padding: 10px 18px;
+    border: 2px solid #e67e22;
+    border-radius: 14px;
     font-weight: bold;
 }
 
 .score.active {
-    background: var(--accent);
-    color: #000;
+    background: #e67e22;
+    color: black;
 }
 
-/* BOARD */
+/* BOARD 8x8 */
 
-.board {
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
+.memory-board {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    gap: 12px;
+    gap: 8px;
+
+    width: 95%;
+    max-width: 900px;
+    margin: 20px auto 40px auto;
 }
 
 /* CARD */
 
-.card {
-    aspect-ratio: 3/4;
-    background: var(--dark-card);
-    border: 2px solid var(--accent);
-    border-radius: 16px;
+.memory-card {
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
     cursor: pointer;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.4s ease;
+    perspective: 800px;
 }
 
-.card.flip {
-    transform: rotateY(180deg);
-}
+/* INNER FLIP */
 
-.card-inner {
-    position: absolute;
+.memory-inner {
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    transition: transform 0.4s ease;
+    transform-style: preserve-3d;
 }
 
-.card-front {
-    background: #ffffff;
-    color: #000;
+.memory-card.flip .memory-inner {
     transform: rotateY(180deg);
-    flex-direction: column;
-    padding: 8px;
-    font-weight: bold;
 }
 
-.card-front img {
+/* BACK (сорочка) */
+
+.memory-back,
+.memory-front {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    backface-visibility: hidden;
+}
+
+/* Твоя помаранчева плитка */
+
+.memory-back {
+    background: linear-gradient(145deg,#f38b2a,#e67e22);
+    box-shadow: 0 6px 0 #b5530c;
+}
+
+/* FRONT */
+
+.memory-front {
+    background: #000;
+    border: 2px solid #e67e22;
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.memory-front img {
     max-width: 80%;
     max-height: 60%;
+    object-fit: contain;
+    margin-bottom: 6px;
 }
 
-.card-back {
-    background: var(--dark-card);
-    }
+.memory-front p {
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+/* MATCHED CARD */
+
+.memory-card.matched {
+    visibility: hidden;
+}

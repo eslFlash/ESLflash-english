@@ -40,16 +40,28 @@
 
 /* BOARD RESPONSIVE */
 
+/* FULLSCREEN LAYOUT */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.arena-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .memory-board {
+    flex: 1;
     display: grid;
     grid-template-columns: repeat(var(--grid-size), 1fr);
-    gap: 8px;
+    gap: 6px;
 
-    width: 95vw;
-    height: calc(100vh - 260px);
-    max-width: 1000px;
-
-    margin: 20px auto 20px auto;
+    width: 95%;
+    margin: 0 auto 10px auto;
 }
 
 /* CARD */

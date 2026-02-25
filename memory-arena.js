@@ -43,7 +43,18 @@ function startGame() {
     cards = shuffle([...gameWords, ...gameWords]);
 
     cards.forEach(item => {
+const difficulty = document.getElementById("difficulty").value;
 
+let gridSize;
+
+if (difficulty === "easy") gridSize = 4;
+if (difficulty === "medium") gridSize = 6;
+if (difficulty === "hard") gridSize = 8;
+
+document.documentElement.style.setProperty("--grid-size", gridSize);
+
+const totalCards = gridSize * gridSize;
+const totalPairs = totalCards / 2;
         const card = document.createElement("div");
         card.classList.add("memory-card");
         card.dataset.word = item.word;

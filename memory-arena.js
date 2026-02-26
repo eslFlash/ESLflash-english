@@ -146,3 +146,48 @@ function speak(word) {
 }
 
 startBtn.addEventListener("click", startGame);
+
+function endGame() {
+
+    let winnerText = "";
+
+    if (player1Score > player2Score) {
+        winnerText = "Player 1 Wins! 🏆";
+    } else if (player2Score > player1Score) {
+        winnerText = "Player 2 Wins! 🏆";
+    } else {
+        winnerText = "It's a Draw! 🤝";
+    }
+
+    const modal = document.createElement("div");
+    modal.style.position = "fixed";
+    modal.style.inset = "0";
+    modal.style.background = "rgba(0,0,0,0.85)";
+    modal.style.display = "flex";
+    modal.style.flexDirection = "column";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.style.color = "white";
+    modal.style.zIndex = "999";
+    modal.style.textAlign = "center";
+
+    modal.innerHTML = `
+        <h2 style="font-size:28px;margin-bottom:10px;">Game Over</h2>
+        <p style="font-size:22px;margin-bottom:20px;">${winnerText}</p>
+        <button id="restartBtn" style="
+            padding:10px 20px;
+            font-size:16px;
+            background:#e67e22;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            font-weight:bold;
+        ">Play Again</button>
+    `;
+
+    document.body.appendChild(modal);
+
+    document.getElementById("restartBtn").addEventListener("click", () => {
+        location.reload();
+    });
+}

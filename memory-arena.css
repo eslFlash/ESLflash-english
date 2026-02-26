@@ -1,0 +1,129 @@
+/* LAYOUT */
+
+body {
+    margin: 0;
+}
+
+.arena-title {
+    margin: 15px 0 5px;
+    font-size: 20px;
+}
+
+.arena-controls {
+    margin: 10px 0;
+}
+
+/* SCORE */
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.score {
+    padding: 8px 16px;
+    border: 2px solid #e67e22;
+    border-radius: 14px;
+    font-weight: bold;
+}
+
+.score.active {
+    background: #e67e22;
+    color: black;
+}
+
+/* BOARD */
+
+.memory-board {
+    display: grid;
+    gap: 8px;
+    width: 95%;
+    margin: 10px auto 40px auto;
+}
+
+/* EASY 4x4 */
+
+.memory-board.easy {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* MEDIUM 4x6 */
+
+.memory-board.medium {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+/* HARD 4x8 */
+
+.memory-board.hard {
+    grid-template-columns: repeat(8, 1fr);
+}
+
+/* CARD */
+
+.memory-card {
+    aspect-ratio: 1/1;
+    border-radius: 18px;
+    cursor: pointer;
+    perspective: 800px;
+}
+
+/* INNER */
+
+.memory-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+.memory-card.flip .memory-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT/BACK */
+
+.memory-back,
+.memory-front {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    backface-visibility: hidden;
+}
+
+.memory-back {
+    background: linear-gradient(145deg,#f38b2a,#e67e22);
+    box-shadow: 0 6px 0 #b5530c;
+}
+
+.memory-front {
+    background: #000;
+    border: 2px solid #e67e22;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.memory-front img {
+    max-width: 75%;
+    max-height: 60%;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.memory-front p {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* MATCH */
+
+.memory-card.matched {
+    visibility: hidden;
+}

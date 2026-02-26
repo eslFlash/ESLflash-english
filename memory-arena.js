@@ -1,3 +1,4 @@
+const difficultySelect = document.getElementById("difficultySelect");
 const dictionarySelect = document.getElementById("dictionarySelect");
 const playersSelect = document.getElementById("playersSelect");
 const startBtn = document.getElementById("startGameBtn");
@@ -30,31 +31,32 @@ function shuffle(arr) {
 
 function startGame() {
 
-    if (!dictData.length) return;
-
     board.innerHTML = "";
     flipped = [];
-    scores = [0, 0];
+    scores = [0,0];
     playersCount = parseInt(playersSelect.value);
     currentPlayer = 1;
+
     updateScores();
 
-    let gameWords = shuffle([...dictData]).slice(0, 32);
-    cards = shuffle([...gameWords, ...gameWords]);
+    const difficulty = difficultySelect.value;
+
+    board.classList.remove("easy","medium","hard");
+    board.classList.add(difficulty);
+
+    const selectedDict = dictionaries[dictionarySelect.value];
+
+    let pairCount = 8; // easy
+
+    if (difficulty === "medium") pairCount = 12;
+    if (difficulty === "hard") pairCount = 16;
+
+    let gameItems = selectedDict.slice(0, pairCount);
+
+    cards = shuffle([...gameItems, ...gameItems]);
 
     cards.forEach(item => {
-const difficulty = document.getElementById("difficulty").value;
 
-let gridSize;
-
-if (difficulty === "easy") gridSize = 4;
-if (difficulty === "medium") gridSize = 6;
-if (difficulty === "hard") gridSize = 8;
-
-document.documentElement.style.setProperty("--grid-size", gridSize);
-
-const totalCards = gridSize * gridSize;
-const totalPairs = totalCards / 2;
         const card = document.createElement("div");
         card.classList.add("memory-card");
         card.dataset.word = item.word;
@@ -63,7 +65,7 @@ const totalPairs = totalCards / 2;
             <div class="memory-inner">
                 <div class="memory-back"></div>
                 <div class="memory-front">
-                    <img src="${item.image}">
+                    <img src="${item.image}" />
                     <p>${item.word}</p>
                 </div>
             </div>

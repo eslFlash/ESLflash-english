@@ -255,7 +255,7 @@
     "image": "images/basic/street.jpg"
   },
   {
-    "word": "bus stop",
+    "word": "bus_stop",
     "translation": "зупинка автобуса",
     "image": "images/basic/bus-stop.jpg"
   },

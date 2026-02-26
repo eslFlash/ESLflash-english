@@ -69,42 +69,32 @@ html, body {
     padding: 0 8px;
     margin: 5px auto 10px auto;
 
-    overflow-x: auto;     /* свайп дозволений */
+    overflow-x: auto;
     overflow-y: hidden;
-    scroll-behavior: smooth;
 }
 
-/* ===== EASY 4x4 ===== */
+/* EASY 4x4 */
 .memory-board.easy {
     grid-template-columns: repeat(4, 1fr);
 }
 
-/* ===== MEDIUM 4x6 ===== */
+/* MEDIUM 4x6 */
 .memory-board.medium {
     grid-template-columns: repeat(6, 1fr);
 }
 
-/* ===== HARD 4x8 ===== */
+/* HARD 4x8 */
 .memory-board.hard {
     grid-template-columns: repeat(8, 1fr);
 }
-
-/* ============================= */
-/* ===== CARD ================== */
-/* ============================= */
 
 .memory-card {
     aspect-ratio: 1 / 1;
     border-radius: 14px;
     cursor: pointer;
     perspective: 800px;
-
-    min-width: 70px; /* щоб при 8 колонках не стискалось в нуль */
+    min-width: 70px;
 }
-
-/* ============================= */
-/* ===== INNER FLIP ============ */
-/* ============================= */
 
 .memory-inner {
     width: 100%;
@@ -118,10 +108,6 @@ html, body {
     transform: rotateY(180deg);
 }
 
-/* ============================= */
-/* ===== BACK (сорочка) ======== */
-/* ============================= */
-
 .memory-back,
 .memory-front {
     position: absolute;
@@ -134,10 +120,6 @@ html, body {
     background: linear-gradient(145deg,#f38b2a,#e67e22);
     box-shadow: 0 4px 0 #b5530c;
 }
-
-/* ============================= */
-/* ===== FRONT ================= */
-/* ============================= */
 
 .memory-front {
     background: #000;
@@ -164,10 +146,6 @@ html, body {
     font-size: clamp(9px, 1.6vw, 14px);
     margin: 0;
 }
-
-/* ============================= */
-/* ===== MATCHED CARD ========== */
-/* ============================= */
 
 .memory-card.matched {
     visibility: hidden;

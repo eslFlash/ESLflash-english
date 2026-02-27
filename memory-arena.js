@@ -145,8 +145,6 @@ function speak(word) {
     speechSynthesis.speak(utter);
 }
 
-startBtn.addEventListener("click", startGame);
-
 function endGame() {
 
     let winnerText = "";
@@ -191,3 +189,5 @@ function endGame() {
         location.reload();
     });
 }
+
+startBtn.addEventListener("click", startGame);

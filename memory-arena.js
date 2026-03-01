@@ -54,6 +54,9 @@ else if (mode === "computer") {
 }
 
     updateScores();
+    // показ / приховування табличок
+document.getElementById("player2").style.display =
+    playersCount === 1 ? "none" : "block";
 
     const difficulty = difficultySelect.value;
 

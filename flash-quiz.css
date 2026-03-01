@@ -94,3 +94,30 @@
     border-radius:10px;
     color:black;
 }
+/* SCOREBOARD like Memory Arena */
+
+.scoreboard{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:15px;
+    margin-top:10px;
+}
+
+.score{
+    padding:8px 16px;
+    border:2px solid #e67e22;
+    border-radius:14px;
+    font-weight:bold;
+    height:fit-content;
+}
+
+.score.active{
+    background:#e67e22;
+    color:black;
+}
+
+.leaderboard h3{
+    color:#e67e22;
+    margin:0 0 5px 0;
+}

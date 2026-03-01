@@ -145,49 +145,77 @@ function speak(word) {
     speechSynthesis.speak(utter);
 }
 
+let totalPairs = 0;
+let matches = 0;
+let vsComputer = false;
+
+function checkGameEnd() {
+    if (matches === totalPairs) {
+        setTimeout(endGame, 600);
+    }
+}
+
 function endGame() {
 
-    let winnerText = "";
+    launchConfetti();
 
-    if (player1Score > player2Score) {
-        winnerText = "Player 1 Wins! 🏆";
-    } else if (player2Score > player1Score) {
-        winnerText = "Player 2 Wins! 🏆";
+    let winnerText = "";
+    let winnerScore = 0;
+
+    if (scores[0] > scores[1]) {
+        winnerText = "🔥 Player 1 dominates the Arena!";
+        winnerScore = scores[0];
+    } else if (scores[1] > scores[0]) {
+        winnerText = "🔥 Player 2 takes the victory!";
+        winnerScore = scores[1];
     } else {
-        winnerText = "It's a Draw! 🤝";
+        winnerText = "⚡ It's a draw. Warriors respect warriors.";
+        winnerScore = scores[0];
     }
+
+    const nickname = prompt("Enter winner nickname:");
+
+    if (nickname) {
+        saveRecord(nickname, winnerScore);
+    }
+
+    renderLeaderboard();
 
     const modal = document.createElement("div");
     modal.style.position = "fixed";
     modal.style.inset = "0";
-    modal.style.background = "rgba(0,0,0,0.85)";
+    modal.style.background = "rgba(0,0,0,0.9)";
     modal.style.display = "flex";
     modal.style.flexDirection = "column";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
-    modal.style.color = "white";
-    modal.style.zIndex = "999";
+    modal.style.zIndex = "1000";
     modal.style.textAlign = "center";
 
     modal.innerHTML = `
-        <h2 style="font-size:28px;margin-bottom:10px;">Game Over</h2>
-        <p style="font-size:22px;margin-bottom:20px;">${winnerText}</p>
+        <h2 style="font-size:26px;color:#e67e22;">GAME OVER</h2>
+        <p style="font-size:18px;margin:10px 0;">
+            ${winnerText}
+        </p>
+        <p style="font-size:16px;margin-bottom:20px;">
+            🧠 Every game makes your memory sharper.
+        </p>
         <button id="restartBtn" style="
-            padding:10px 20px;
-            font-size:16px;
-            background:#e67e22;
+            padding:12px 22px;
+            border-radius:14px;
             border:none;
-            border-radius:10px;
-            cursor:pointer;
+            background:#e67e22;
+            color:white;
             font-weight:bold;
+            cursor:pointer;
+            box-shadow:0 4px 0 #c96a1c;
         ">Play Again</button>
     `;
 
     document.body.appendChild(modal);
 
-    document.getElementById("restartBtn").addEventListener("click", () => {
-        location.reload();
-    });
+    document.getElementById("restartBtn")
+        .addEventListener("click", () => location.reload());
 }
 
 startBtn.addEventListener("click", startGame);

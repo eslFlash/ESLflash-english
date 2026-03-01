@@ -198,11 +198,19 @@ function endTurn(){
 }
 
 function updateScore(){
-  scoreBoard.innerHTML = `
-    Player 1: ${scores[1]}
-    ${mode===2?` | Player 2: ${scores[2]}`:""}
-  `;
-}
+
+  document.querySelector("#player1 span").textContent = scores[1];
+  document.querySelector("#player2 span").textContent = scores[2];
+
+  document.getElementById("player1")
+    .classList.toggle("active", currentPlayer === 1);
+
+  document.getElementById("player2")
+    .classList.toggle("active", currentPlayer === 2);
+
+  document.getElementById("player2").style.display =
+      mode === 1 ? "none" : "block";
+     }
 
 function speak(text){
   if(!window.speechSynthesis) return;

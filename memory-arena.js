@@ -38,7 +38,15 @@ async function startGame() {
     scores = [0,0];
     currentPlayer = 1;
 
-    playersCount = parseInt(playersSelect.value);
+    const mode = playersSelect.value;
+
+if (mode === "computer") {
+    playersCount = 2;
+    vsComputer = true;
+} else {
+    playersCount = parseInt(mode);
+    vsComputer = false;
+}
     vsComputer = playersCount === 1;
 
     updateScores();

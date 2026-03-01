@@ -96,6 +96,8 @@ function checkMatch() {
     if (c1.dataset.word === c2.dataset.word) {
 
         scores[currentPlayer - 1]++;
+        matches++;
+checkGameEnd();
         speak(c1.dataset.word);
 
         setTimeout(() => {
@@ -119,10 +121,33 @@ function checkMatch() {
 /* SWITCH */
 
 function switchPlayer() {
+
     if (playersCount === 1) return;
+
     currentPlayer = currentPlayer === 1 ? 2 : 1;
     updateScores();
+
+    if (playersCount === 2 && currentPlayer === 2) {
+        setTimeout(computerMove, 800);
+    }
 }
+
+function computerMove() {
+
+    let available = [...document.querySelectorAll(".memory-card:not(.flip):not(.matched)")];
+
+    if (available.length < 2) return;
+
+    let first = available[Math.floor(Math.random() * available.length)];
+    flipCard(first);
+
+    setTimeout(() => {
+        let secondOptions = [...document.querySelectorAll(".memory-card:not(.flip):not(.matched)")];
+        let second = secondOptions[Math.floor(Math.random() * secondOptions.length)];
+        flipCard(second);
+    }, 600);
+}
+
 
 /* SCORE */
 
@@ -219,3 +244,45 @@ function endGame() {
 }
 
 startBtn.addEventListener("click", startGame);
+function launchConfetti() {
+    for (let i = 0; i < 80; i++) {
+        let conf = document.createElement("div");
+        conf.style.position = "fixed";
+        conf.style.width = "6px";
+        conf.style.height = "6px";
+        conf.style.background = "#e67e22";
+        conf.style.top = "0";
+        conf.style.left = Math.random() * 100 + "vw";
+        conf.style.opacity = Math.random();
+        conf.style.zIndex = "2000";
+        conf.style.transition = "2s ease-out";
+        document.body.appendChild(conf);
+
+        setTimeout(() => {
+            conf.style.top = "100vh";
+            conf.style.transform = "rotate(720deg)";
+        }, 10);
+
+        setTimeout(() => conf.remove(), 2000);
+    }
+}
+function saveRecord(name, score) {
+    let records = JSON.parse(localStorage.getItem("memoryArenaRecords")) || [];
+    records.push({ name, score });
+    records.sort((a,b) => b.score - a.score);
+    records = records.slice(0,5);
+    localStorage.setItem("memoryArenaRecords", JSON.stringify(records));
+}
+
+function renderLeaderboard() {
+    let records = JSON.parse(localStorage.getItem("memoryArenaRecords")) || [];
+    const lb = document.getElementById("leaderboard");
+
+    lb.innerHTML = "<h3 style='color:#e67e22;'>🏆 Top Players</h3>";
+
+    records.forEach(r => {
+        lb.innerHTML += `<p>${r.name} — ${r.score}</p>`;
+    });
+}
+
+renderLeaderboard();

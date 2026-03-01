@@ -9,6 +9,9 @@ let flipped = [];
 let currentPlayer = 1;
 let scores = [0,0];
 let playersCount = 2;
+let totalPairs = 0;
+let matches = 0;
+let vsComputer = false;
 
 /* LOAD DICTIONARY */
 
@@ -33,8 +36,11 @@ async function startGame() {
     board.innerHTML = "";
     flipped = [];
     scores = [0,0];
-    playersCount = parseInt(playersSelect.value);
     currentPlayer = 1;
+
+    playersCount = parseInt(playersSelect.value);
+    vsComputer = playersCount === 1;
+
     updateScores();
 
     const difficulty = difficultySelect.value;
@@ -45,8 +51,9 @@ async function startGame() {
     let pairCount = 8;
     if (difficulty === "medium") pairCount = 12;
     if (difficulty === "hard") pairCount = 16;
+
     totalPairs = pairCount;
-matches = 0;
+    matches = 0;
 
     let selectedWords = shuffle(dictData).slice(0, pairCount);
     let cards = shuffle([...selectedWords, ...selectedWords]);
@@ -99,8 +106,7 @@ function checkMatch() {
 
         scores[currentPlayer - 1]++;
         matches++;
-checkGameEnd();
-        speak(c1.dataset.word);
+        checkGameEnd();
 
         setTimeout(() => {
             c1.classList.add("matched");
@@ -124,12 +130,12 @@ checkGameEnd();
 
 function switchPlayer() {
 
-    if (playersCount === 1) return;
+    if (playersCount === 2) {
+        currentPlayer = currentPlayer === 1 ? 2 : 1;
+        updateScores();
+    }
 
-    currentPlayer = currentPlayer === 1 ? 2 : 1;
-    updateScores();
-
-    if (playersCount === 2 && currentPlayer === 2) {
+    if (vsComputer && currentPlayer === 2) {
         setTimeout(computerMove, 800);
     }
 }
@@ -150,10 +156,10 @@ function computerMove() {
     }, 600);
 }
 
-
 /* SCORE */
 
 function updateScores() {
+
     document.querySelector("#player1 span").textContent = scores[0];
     document.querySelector("#player2 span").textContent = scores[1];
 
@@ -172,9 +178,7 @@ function speak(word) {
     speechSynthesis.speak(utter);
 }
 
-let totalPairs = 0;
-let matches = 0;
-let vsComputer = false;
+/* GAME END */
 
 function checkGameEnd() {
     if (matches === totalPairs) {
@@ -190,69 +194,56 @@ function endGame() {
     let winnerScore = 0;
 
     if (scores[0] > scores[1]) {
-        winnerText = "🔥 Player 1 dominates the Arena!";
+        winnerText = "🔥 Player 1 wins the Arena!";
         winnerScore = scores[0];
     } else if (scores[1] > scores[0]) {
-        winnerText = "🔥 Player 2 takes the victory!";
+        winnerText = vsComputer
+            ? "🤖 Computer wins!"
+            : "🔥 Player 2 wins the Arena!";
         winnerScore = scores[1];
     } else {
-        winnerText = "⚡ It's a draw. Warriors respect warriors.";
+        winnerText = "⚡ Draw!";
         winnerScore = scores[0];
     }
 
-    const nickname = prompt("Enter winner nickname:");
-
-    if (nickname) {
-        saveRecord(nickname, winnerScore);
-    }
-
-    renderLeaderboard();
-
     const modal = document.createElement("div");
-    modal.style.position = "fixed";
-    modal.style.inset = "0";
-    modal.style.background = "rgba(0,0,0,0.9)";
-    modal.style.display = "flex";
-    modal.style.flexDirection = "column";
-    modal.style.alignItems = "center";
-    modal.style.justifyContent = "center";
-    modal.style.zIndex = "1000";
-    modal.style.textAlign = "center";
+    modal.className = "esl-modal";
 
     modal.innerHTML = `
-        <h2 style="font-size:26px;color:#e67e22;">GAME OVER</h2>
-        <p style="font-size:18px;margin:10px 0;">
-            ${winnerText}
-        </p>
-        <p style="font-size:16px;margin-bottom:20px;">
-            🧠 Every game makes your memory sharper.
-        </p>
-        <button id="restartBtn" style="
-            padding:12px 22px;
-            border-radius:14px;
-            border:none;
-            background:#e67e22;
-            color:white;
-            font-weight:bold;
-            cursor:pointer;
-            box-shadow:0 4px 0 #c96a1c;
-        ">Play Again</button>
+        <div class="esl-modal-card">
+            <h2>GAME OVER</h2>
+            <p>${winnerText}</p>
+
+            <input id="nicknameInput" placeholder="Enter nickname">
+
+            <button id="saveScoreBtn">Save Score</button>
+            <button id="restartBtn">Play Again</button>
+        </div>
     `;
 
     document.body.appendChild(modal);
+
+    document.getElementById("saveScoreBtn")
+        .addEventListener("click", () => {
+            const name = document.getElementById("nicknameInput").value.trim();
+            if (!name) return;
+            saveRecord(name, winnerScore);
+            renderLeaderboard();
+        });
 
     document.getElementById("restartBtn")
         .addEventListener("click", () => location.reload());
 }
 
-startBtn.addEventListener("click", startGame);
+/* CONFETTI */
+
 function launchConfetti() {
     for (let i = 0; i < 80; i++) {
         let conf = document.createElement("div");
         conf.style.position = "fixed";
         conf.style.width = "6px";
         conf.style.height = "6px";
-        conf.style.background = "#e67e22";
+        conf.style.background = "#ff8c00";
         conf.style.top = "0";
         conf.style.left = Math.random() * 100 + "vw";
         conf.style.opacity = Math.random();
@@ -268,6 +259,9 @@ function launchConfetti() {
         setTimeout(() => conf.remove(), 2000);
     }
 }
+
+/* LEADERBOARD */
+
 function saveRecord(name, score) {
     let records = JSON.parse(localStorage.getItem("memoryArenaRecords")) || [];
     records.push({ name, score });
@@ -280,7 +274,7 @@ function renderLeaderboard() {
     let records = JSON.parse(localStorage.getItem("memoryArenaRecords")) || [];
     const lb = document.getElementById("leaderboard");
 
-    lb.innerHTML = "<h3 style='color:#e67e22;'>🏆 Top Players</h3>";
+    lb.innerHTML = "<h3>🏆 Top Players</h3>";
 
     records.forEach(r => {
         lb.innerHTML += `<p>${r.name} — ${r.score}</p>`;
@@ -288,3 +282,5 @@ function renderLeaderboard() {
 }
 
 renderLeaderboard();
+
+startBtn.addEventListener("click", startGame);

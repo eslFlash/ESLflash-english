@@ -173,14 +173,81 @@ function executeEffect(tile){
 }
 
 function showEffect(tile){
+
+  const positiveActions = ["gain","bothGain","oppLose","steal","double"];
+  const isPositive = positiveActions.includes(tile.action);
+
+  const emoji = isPositive ? "😊" : "🤦‍♂️";
+
+  const translations = {
+    steal:"Вкради очки",
+    lose:"Втрати очки",
+    gain:"Отримай очки",
+    resetSelf:"Скидання твоїх очок",
+    resetOpp:"Скидання очок суперника",
+    double:"Подвоєння",
+    swap:"Обмін очками",
+    bothGain:"Обидва отримують очки",
+    bothLose:"Обидва втрачають очки",
+    half:"Половина очок",
+    oppGain:"Суперник отримує очки",
+    oppLose:"Суперник втрачає очки"
+  };
+
+  let fullText = "";
+
+  switch(tile.action){
+    case "bothGain":
+      fullText = `You both get +${tile.value}`;
+      break;
+    case "bothLose":
+      fullText = `You both get -${tile.value}`;
+      break;
+    case "gain":
+      fullText = `You get +${tile.value}`;
+      break;
+    case "lose":
+      fullText = `You get -${tile.value}`;
+      break;
+    case "oppGain":
+      fullText = `Opponent gets +${tile.value}`;
+      break;
+    case "oppLose":
+      fullText = `Opponent gets -${tile.value}`;
+      break;
+    case "steal":
+      fullText = `Steal ${tile.value} from opponent`;
+      break;
+    case "double":
+      fullText = `Your score doubles`;
+      break;
+    case "swap":
+      fullText = `Swap scores`;
+      break;
+    case "half":
+      fullText = `Your score is cut in half`;
+      break;
+    case "resetSelf":
+      fullText = `Your score resets to 0`;
+      break;
+    case "resetOpp":
+      fullText = `Opponent score resets to 0`;
+      break;
+  }
+
   modal.style.display="flex";
   modalBody.innerHTML=`
-      <h2>${tile.text}</h2>
-      <button id="okBtn">OK</button>
+      <div class="quiz-modal">
+        <h2>${fullText} ${emoji}</h2>
+        <p style="color:#888; margin-top:5px;">
+          ${translations[tile.action]}
+        </p>
+        <button id="okBtn">OK</button>
+      </div>
   `;
 
   document.getElementById("okBtn").onclick = endTurn;
-}
+      }
 
 function endTurn(){
   modal.style.display="none";
@@ -227,21 +294,87 @@ function shuffle(arr){
 }
 
 function showFinal(){
-  let message = "";
+
+  launchConfetti();
+
+  let winnerText = "";
+  let winnerScore = 0;
 
   if(scores[1] > scores[2]){
-    message = "🔥 Player 1 dominates!";
-  } else if(scores[2] > scores[1]){
-    message = "🔥 Player 2 takes the crown!";
-  } else {
-    message = "⚖️ Draw! Real battle!";
+    winnerText = "🔥 Player 1 wins!";
+    winnerScore = scores[1];
+  } 
+  else if(scores[2] > scores[1]){
+    winnerText = "🔥 Player 2 wins!";
+    winnerScore = scores[2];
+  } 
+  else {
+    winnerText = "⚡ Draw!";
+    winnerScore = scores[1];
   }
 
   modal.style.display = "flex";
   modalBody.innerHTML = `
-      <h2 style="color:#e67e22;">Game Over</h2>
-      <p style="font-size:20px; margin:15px 0;">${message}</p>
-      <p>Player 1: ${scores[1]} | Player 2: ${scores[2]}</p>
-      <button onclick="location.reload()">Play Again</button>
+      <div class="quiz-modal">
+          <h2 style="color:#e67e22;">GAME OVER</h2>
+          <p style="font-size:20px;margin:15px 0;">
+              ${winnerText}
+          </p>
+          <input id="nicknameInput" placeholder="Enter nickname">
+          <button id="saveScoreBtn">Save Score</button>
+          <button id="restartBtn">Play Again</button>
+      </div>
   `;
+
+  document.getElementById("saveScoreBtn").onclick = ()=>{
+      const name = document.getElementById("nicknameInput").value.trim();
+      if(!name) return;
+      saveRecord(name, winnerScore);
+      renderLeaderboard();
+  };
+
+  document.getElementById("restartBtn").onclick = ()=>location.reload();
 }
+
+function launchConfetti(){
+    for (let i = 0; i < 80; i++) {
+        let conf = document.createElement("div");
+        conf.style.position = "fixed";
+        conf.style.width = "6px";
+        conf.style.height = "6px";
+        conf.style.background = "#ff8c00";
+        conf.style.top = "0";
+        conf.style.left = Math.random() * 100 + "vw";
+        conf.style.opacity = Math.random();
+        conf.style.zIndex = "3000";
+        conf.style.transition = "2s ease-out";
+        document.body.appendChild(conf);
+
+        setTimeout(()=>{
+            conf.style.top="100vh";
+            conf.style.transform="rotate(720deg)";
+        },10);
+
+        setTimeout(()=>conf.remove(),2000);
+    }
+          }
+function saveRecord(name, score){
+    let records = JSON.parse(localStorage.getItem("flashQuizRecords")) || [];
+    records.push({name, score});
+    records.sort((a,b)=>b.score-a.score);
+    records = records.slice(0,5);
+    localStorage.setItem("flashQuizRecords", JSON.stringify(records));
+}
+
+function renderLeaderboard(){
+    let records = JSON.parse(localStorage.getItem("flashQuizRecords")) || [];
+    const lb = document.getElementById("leaderboard");
+
+    lb.innerHTML = "<h3>🏆 Top Players</h3>";
+
+    records.forEach(r=>{
+        lb.innerHTML += `<p>${r.name} — ${r.score}</p>`;
+    });
+}
+
+renderLeaderboard();

@@ -138,10 +138,8 @@ function checkMatch() {
 
 function switchPlayer() {
 
-    if (playersCount === 2) {
-        currentPlayer = currentPlayer === 1 ? 2 : 1;
-        updateScores();
-    }
+    currentPlayer = currentPlayer === 1 ? 2 : 1;
+    updateScores();
 
     if (vsComputer && currentPlayer === 2) {
         setTimeout(computerMove, 800);

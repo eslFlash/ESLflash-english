@@ -194,6 +194,7 @@ function endTurn(){
 
   if(mode===2){
     currentPlayer = currentPlayer===1?2:1;
+    updateScore();
   }
 }
 

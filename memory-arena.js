@@ -45,6 +45,8 @@ async function startGame() {
     let pairCount = 8;
     if (difficulty === "medium") pairCount = 12;
     if (difficulty === "hard") pairCount = 16;
+    totalPairs = pairCount;
+matches = 0;
 
     let selectedWords = shuffle(dictData).slice(0, pairCount);
     let cards = shuffle([...selectedWords, ...selectedWords]);

@@ -145,6 +145,8 @@ function checkMatch() {
 
 function switchPlayer() {
 
+    if (playersCount === 1) return;
+
     currentPlayer = currentPlayer === 1 ? 2 : 1;
     updateScores();
 

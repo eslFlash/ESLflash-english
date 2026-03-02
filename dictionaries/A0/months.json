@@ -1,0 +1,14 @@
+[
+  { "word": "January", "translation": "січень" },
+  { "word": "February", "translation": "лютий" },
+  { "word": "March", "translation": "березень" },
+  { "word": "April", "translation": "квітень" },
+  { "word": "May", "translation": "травень" },
+  { "word": "June", "translation": "червень" },
+  { "word": "July", "translation": "липень" },
+  { "word": "August", "translation": "серпень" },
+  { "word": "September", "translation": "вересень" },
+  { "word": "October", "translation": "жовтень" },
+  { "word": "November", "translation": "листопад" },
+  { "word": "December", "translation": "грудень" }
+]

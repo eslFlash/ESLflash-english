@@ -1,0 +1,12 @@
+[
+  { "word": "family", "translation": "сім'я" },
+  { "word": "mother", "translation": "мама" },
+  { "word": "father", "translation": "тато" },
+  { "word": "mom", "translation": "мама (розмовне)" },
+  { "word": "dad", "translation": "тато (розмовне)" },
+  { "word": "brother", "translation": "брат" },
+  { "word": "sister", "translation": "сестра" },
+  { "word": "baby", "translation": "дитина (немовля)" },
+  { "word": "child", "translation": "дитина" },
+  { "word": "children", "translation": "діти" }
+]

@@ -1,0 +1,13 @@
+[
+  { "word": "book", "translation": "книга" },
+  { "word": "pen", "translation": "ручка" },
+  { "word": "pencil", "translation": "олівець" },
+  { "word": "table", "translation": "стіл" },
+  { "word": "chair", "translation": "стілець" },
+  { "word": "teacher", "translation": "вчитель" },
+  { "word": "student", "translation": "учень" },
+  { "word": "open", "translation": "відкривати" },
+  { "word": "close", "translation": "закривати" },
+  { "word": "listen", "translation": "слухати" },
+  { "word": "repeat", "translation": "повторювати" }
+]

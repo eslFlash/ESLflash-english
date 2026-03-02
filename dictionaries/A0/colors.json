@@ -1,0 +1,12 @@
+[
+  { "word": "red", "translation": "червоний" },
+  { "word": "blue", "translation": "синій" },
+  { "word": "green", "translation": "зелений" },
+  { "word": "yellow", "translation": "жовтий" },
+  { "word": "black", "translation": "чорний" },
+  { "word": "white", "translation": "білий" },
+  { "word": "brown", "translation": "коричневий" },
+  { "word": "orange", "translation": "помаранчевий" },
+  { "word": "pink", "translation": "рожевий" },
+  { "word": "gray", "translation": "сірий" }
+]

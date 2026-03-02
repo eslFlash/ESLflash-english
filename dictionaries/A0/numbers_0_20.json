@@ -1,0 +1,23 @@
+[
+  { "word": "zero", "translation": "нуль" },
+  { "word": "one", "translation": "один" },
+  { "word": "two", "translation": "два" },
+  { "word": "three", "translation": "три" },
+  { "word": "four", "translation": "чотири" },
+  { "word": "five", "translation": "п'ять" },
+  { "word": "six", "translation": "шість" },
+  { "word": "seven", "translation": "сім" },
+  { "word": "eight", "translation": "вісім" },
+  { "word": "nine", "translation": "дев'ять" },
+  { "word": "ten", "translation": "десять" },
+  { "word": "eleven", "translation": "одинадцять" },
+  { "word": "twelve", "translation": "дванадцять" },
+  { "word": "thirteen", "translation": "тринадцять" },
+  { "word": "fourteen", "translation": "чотирнадцять" },
+  { "word": "fifteen", "translation": "п'ятнадцять" },
+  { "word": "sixteen", "translation": "шістнадцять" },
+  { "word": "seventeen", "translation": "сімнадцять" },
+  { "word": "eighteen", "translation": "вісімнадцять" },
+  { "word": "nineteen", "translation": "дев'ятнадцять" },
+  { "word": "twenty", "translation": "двадцять" }
+]

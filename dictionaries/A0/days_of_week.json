@@ -1,0 +1,9 @@
+[
+  { "word": "Monday", "translation": "понеділок" },
+  { "word": "Tuesday", "translation": "вівторок" },
+  { "word": "Wednesday", "translation": "середа" },
+  { "word": "Thursday", "translation": "четвер" },
+  { "word": "Friday", "translation": "п'ятниця" },
+  { "word": "Saturday", "translation": "субота" },
+  { "word": "Sunday", "translation": "неділя" }
+]

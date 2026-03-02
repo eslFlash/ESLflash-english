@@ -1,0 +1,33 @@
+{
+  "level": "A0",
+  "topic": "Greetings",
+  "core": [
+    { "word": "hello", "translation": "привіт" },
+    { "word": "hi", "translation": "привіт" },
+    { "word": "good morning", "translation": "доброго ранку" },
+    { "word": "good afternoon", "translation": "доброго дня" },
+    { "word": "good evening", "translation": "добрий вечір" },
+    { "word": "good night", "translation": "на добраніч" },
+    { "word": "bye", "translation": "пока" },
+    { "word": "goodbye", "translation": "до побачення" },
+    { "word": "see you", "translation": "побачимось" },
+    { "word": "see you later", "translation": "побачимось пізніше" },
+    { "word": "how are you?", "translation": "як справи?" },
+    { "word": "I'm fine", "translation": "я в порядку" },
+    { "word": "I'm good", "translation": "все добре" },
+    { "word": "thank you", "translation": "дякую" },
+    { "word": "thanks", "translation": "дякую" }
+  ],
+  "extra": [
+    { "word": "nice to meet you", "translation": "приємно познайомитись" },
+    { "word": "nice to see you", "translation": "радий тебе бачити" },
+    { "word": "welcome", "translation": "ласкаво просимо" },
+    { "word": "excuse me", "translation": "вибачте" },
+    { "word": "sorry", "translation": "вибач" },
+    { "word": "no problem", "translation": "немає проблем" },
+    { "word": "please", "translation": "будь ласка" },
+    { "word": "have a nice day", "translation": "гарного дня" },
+    { "word": "take care", "translation": "бережи себе" },
+    { "word": "what's your name?", "translation": "як тебе звати?" }
+  ]
+}

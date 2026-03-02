@@ -1,0 +1,10 @@
+[
+  { "word": "I am", "translation": "я є" },
+  { "word": "my name is", "translation": "мене звати" },
+  { "word": "what is your name?", "translation": "як тебе звати?" },
+  { "word": "nice to meet you", "translation": "приємно познайомитись" },
+  { "word": "how are you?", "translation": "як справи?" },
+  { "word": "I am fine", "translation": "я в порядку" },
+  { "word": "I am good", "translation": "у мене все добре" },
+  { "word": "I am not good", "translation": "у мене не дуже" }
+]

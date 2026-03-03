@@ -9,18 +9,47 @@ let score = 0;
 const dictionarySelect = document.getElementById("dictionarySelect");
 const gameArea = document.getElementById("gameArea");
 
-const dictionaries = [
-  { id: "basic", title: "Basic" },
-  { id: "verbs", title: "Verbs" },
-  { id: "food", title: "Food" }
-];
+populateDictionarySelect();
+dictionarySelect.addEventListener("change", loadDictionary);
 
-dictionaries.forEach(dict => {
-  const option = document.createElement("option");
-  option.value = dict.id;
-  option.textContent = dict.title;
-  dictionarySelect.appendChild(option);
-});
+async function populateDictionarySelect(){
+
+    dictionarySelect.innerHTML = `<option value="">Select dictionary</option>`;
+
+    try {
+        const response = await fetch("dictionaries/index.json");
+        const dictionaries = await response.json();
+
+        dictionaries.forEach(dict=>{
+            const opt = document.createElement("option");
+            opt.value = dict.path;
+            opt.textContent = `${dict.level} — ${dict.title}`;
+            dictionarySelect.appendChild(opt);
+        });
+
+    } catch(error){
+        console.error("Dictionary index load error:", error);
+    }
+}
+
+async function loadDictionary() {
+    const selected = dictionarySelect.value;
+    if (!selected) return;
+
+    try {
+        const response = await fetch(`dictionaries/${selected}.json`);
+        const data = await response.json();
+
+        if (data.core) {
+            dictData = [...data.core, ...(data.extra || [])];
+        } else {
+            dictData = data;
+        }
+
+    } catch(error){
+        console.error("Dictionary load error:", error);
+    }
+}
 
 async function startGame() {
   const selected = dictionarySelect.value;

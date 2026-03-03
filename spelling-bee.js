@@ -10,7 +10,6 @@ const dictionarySelect = document.getElementById("dictionarySelect");
 const gameArea = document.getElementById("gameArea");
 
 const dictionaries = [
-  { id: "A0/greetings", title: "A0 • Greetings" },
   { id: "basic", title: "Basic" },
   { id: "verbs", title: "Verbs" },
   { id: "food", title: "Food" }

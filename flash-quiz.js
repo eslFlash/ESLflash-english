@@ -31,21 +31,24 @@ btnPlay.addEventListener("click", startGame);
 
 populateDictionarySelect();
 
-function populateDictionarySelect(){
-  const list = [
-    {name:"Verbs", file:"verbs.json"},
-    {name:"Basic", file:"basic.json"},
-    {name:"Food", file:"food.json"}
-  ];
+async function populateDictionarySelect() {
 
   dictionarySelect.innerHTML = `<option value="">Select dictionary</option>`;
 
-  list.forEach(item=>{
-    const opt = document.createElement("option");
-    opt.value = item.file;
-    opt.textContent = item.name;
-    dictionarySelect.appendChild(opt);
-  });
+  try {
+    const response = await fetch("dictionaries/index.json");
+    const dictionaries = await response.json();
+
+    dictionaries.forEach(dict => {
+      const opt = document.createElement("option");
+      opt.value = dict.path;
+      opt.textContent = `${dict.level} — ${dict.title}`;
+      dictionarySelect.appendChild(opt);
+    });
+
+  } catch (error) {
+    console.error("Dictionary index load error:", error);
+  }
 }
 
 async function startGame(){

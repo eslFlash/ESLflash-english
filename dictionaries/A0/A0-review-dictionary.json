@@ -1,0 +1,59 @@
+[
+  { "word": "hello", "translation": "привіт" },
+  { "word": "hi", "translation": "привіт (неформально)" },
+  { "word": "goodbye", "translation": "до побачення" },
+  { "word": "please", "translation": "будь ласка" },
+  { "word": "thank you", "translation": "дякую" },
+  { "word": "yes", "translation": "так" },
+  { "word": "no", "translation": "ні" },
+
+  { "word": "I", "translation": "я" },
+  { "word": "you", "translation": "ти / ви" },
+  { "word": "he", "translation": "він" },
+  { "word": "she", "translation": "вона" },
+  { "word": "we", "translation": "ми" },
+  { "word": "they", "translation": "вони" },
+
+  { "word": "be", "translation": "бути" },
+  { "word": "have", "translation": "мати" },
+  { "word": "go", "translation": "йти / їхати" },
+  { "word": "do", "translation": "робити" },
+  { "word": "like", "translation": "подобатися" },
+  { "word": "want", "translation": "хотіти" },
+  { "word": "eat", "translation": "їсти" },
+  { "word": "drink", "translation": "пити" },
+
+  { "word": "mother", "translation": "мама" },
+  { "word": "father", "translation": "тато" },
+  { "word": "brother", "translation": "брат" },
+  { "word": "sister", "translation": "сестра" },
+  { "word": "family", "translation": "сім'я" },
+  { "word": "baby", "translation": "немовля" },
+
+  { "word": "Monday", "translation": "понеділок" },
+  { "word": "Friday", "translation": "п'ятниця" },
+  { "word": "Sunday", "translation": "неділя" },
+  { "word": "January", "translation": "січень" },
+  { "word": "May", "translation": "травень" },
+  { "word": "December", "translation": "грудень" },
+
+  { "word": "one", "translation": "один" },
+  { "word": "two", "translation": "два" },
+  { "word": "five", "translation": "п'ять" },
+  { "word": "ten", "translation": "десять" },
+  { "word": "twenty", "translation": "двадцять" },
+
+  { "word": "red", "translation": "червоний" },
+  { "word": "blue", "translation": "синій" },
+  { "word": "green", "translation": "зелений" },
+  { "word": "black", "translation": "чорний" },
+  { "word": "white", "translation": "білий" },
+
+  { "word": "teacher", "translation": "вчитель" },
+  { "word": "student", "translation": "студент" },
+  { "word": "book", "translation": "книга" },
+  { "word": "pen", "translation": "ручка" },
+
+  { "word": "Ukraine", "translation": "Україна" },
+  { "word": "USA", "translation": "США" }
+]

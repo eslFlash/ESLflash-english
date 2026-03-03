@@ -13,11 +13,18 @@ function loadDictionary() {
             return response.json();
         })
         .then(data => {
-            words = data;
-            score = 0;
-            document.getElementById("score").innerText = "Бали: 0";
-            nextWord();
-        })
+
+    // Підтримка старого і нового формату словників
+    if (Array.isArray(data)) {
+        words = data; // старий формат
+    } else {
+        words = [...data.core, ...data.extra]; // новий A0 формат
+    }
+
+    score = 0;
+    document.getElementById("score").innerText = "Бали: 0";
+    nextWord();
+})
         .catch(error => {
             document.getElementById("word").innerText = "Помилка завантаження словника";
             console.error(error);

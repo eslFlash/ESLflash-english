@@ -8,12 +8,47 @@ const imageBox = document.getElementById("imageBox");
 const answersBox = document.getElementById("answersBox");
 const scoreEl = document.getElementById("score");
 
+populateDictionarySelect();
 dictionarySelect.addEventListener("change", loadDictionary);
+
+async function populateDictionarySelect(){
+
+    dictionarySelect.innerHTML = `<option value="">Select dictionary</option>`;
+
+    try {
+        const response = await fetch("dictionaries/index.json");
+        const dictionaries = await response.json();
+
+        dictionaries.forEach(dict=>{
+            const opt = document.createElement("option");
+            opt.value = dict.path;
+            opt.textContent = `${dict.level} — ${dict.title}`;
+            dictionarySelect.appendChild(opt);
+        });
+
+    } catch(error){
+        console.error("Dictionary index load error:", error);
+    }
+}
 
 async function loadDictionary() {
     const selected = dictionarySelect.value;
-    const response = await fetch(`dictionaries/${selected}.json`);
-    dictData = await response.json();
+    if (!selected) return;
+
+    try {
+        const response = await fetch(`dictionaries/${selected}.json`);
+        const data = await response.json();
+
+        // якщо словник нової структури (core + extra)
+        if (data.core) {
+            dictData = [...data.core, ...(data.extra || [])];
+        } else {
+            dictData = data;
+        }
+
+    } catch(error){
+        console.error("Dictionary load error:", error);
+    }
 }
 
 function startGame() {

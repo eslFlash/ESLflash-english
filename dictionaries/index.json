@@ -4,49 +4,74 @@
     "title": "A0 • Greetings",
     "file": "A0/greetings.json"
   }
+]
+[
   {
     "level": "A0",
     "title": "A0 • Numbers_0-20",
     "file": "A0/numbers_0_20.json"
   }
+]
+[
   {
     "level": "A0",
-    "title": "A0 • Greetings",
-    "file": "A0/greetings.json"
+    "title": "A0 • Colors",
+    "file": "A0/colors.json"
   }
+]
+[
   {
     "level": "A0",
-    "title": "A0 • Greetings",
-    "file": "A0/greetings.json"
+    "title": "A0 • Introductions",
+    "file": "A0/introductions.json"
   }
+]
+[
   {
     "level": "A0",
-    "title": "A0 • Greetings",
-    "file": "A0/greetings.json"
+    "title": "A0 • Family",
+    "file": "A0/family.json"
   }
+]
+[
   {
     "level": "A0",
-    "title": "A0 • Greetings",
-    "file": "A0/greetings.json"
+    "title": "A0 • Basic verbs",
+    "file": "A0/basic_verbs.json"
   }
+]
+[
   {
     "level": "A0",
-    "title": "A0 • Greetings",
-    "file": "A0/greetings.json"
+    "title": "A0 • Classroom",
+    "file": "A0/classroom_basic.json"
   }
+]
+[
   {
     "level": "A0",
-    "title": "A0 • Greetings",
-    "file": "A0/greetings.json"
+    "title": "A0 • Days of the week",
+    "file": "A0/days_of_week.json"
   }
+]
+[
   {
     "level": "A0",
-    "title": "A0 • Greetings",
-    "file": "A0/greetings.json"
+    "title": "A0 • Months",
+    "file": "A0/moths.json"
   }
+]
+[
   {
     "level": "A0",
-    "title": "A0 • Greetings",
-    "file": "A0/greetings.json"
+    "title": "A0 • Countries",
+    "file": "A0/countries.json"
+  }
+]
+[
+  {
+    "level": "A0",
+    "title": "A0 • Common review",
+    "file": "A0/A0-review-dictionary.json"
   }
 ]

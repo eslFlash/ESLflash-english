@@ -1,4 +1,7 @@
-[
+{
+  "level": "A0",
+  "topic": "Reviev-dictionary",
+  "core": [
   { "word": "hello", "translation": "привіт" },
   { "word": "hi", "translation": "привіт (неформально)" },
   { "word": "goodbye", "translation": "до побачення" },

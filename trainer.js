@@ -57,4 +57,10 @@ function checkAnswer() {
     setTimeout(nextWord, 1000);
 }
 
-window.onload = loadDictionary;
+window.onload = async () => {
+
+    await populateDictionarySelect();
+
+    loadDictionary();
+
+};

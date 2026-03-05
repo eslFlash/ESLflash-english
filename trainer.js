@@ -5,7 +5,7 @@ let score = 0;
 function loadDictionary() {
     const selected = document.getElementById("dictionarySelect").value;
 
-    fetch(`dictionaries/${selected}.json`)
+    fetch(`dictionaries/${selected}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Dictionary not found");

@@ -18,4 +18,6 @@ async function populateDictionarySelect() {
 
     });
 
-      }
+    select.addEventListener("change", loadDictionary);
+
+}
